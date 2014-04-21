@@ -6,8 +6,9 @@
 \renewcommand{\rmdefault}{ptm}
 \usepackage[pdftex]{graphicx}
 \usepackage{multirow}
+\newcommand{\nextitem}{\par\hspace*{\labelsep}\textbullet\hspace*{\labelsep}}
 
-\title{IT-løsning til Tolkeservice}
+\title{Kalender og aftalebooking til K. Translation}
 \author{Omar Khalidan - [xx-xx-xx]\\
      Morten Trolle Nielsen - [14-06-79]\\ \\
     Instruktor: Andreas Frisch\\ \\
@@ -41,11 +42,6 @@ der undervejs vil forekomme adskillige fagspecifikke termer.
 
 \section{Problemformulering}
 
-\emph{”Hvordan konstruerer man et bookingsystem til en tolkevirksomhed, som
-formindsker tidsspilde og fejl ? Og hvordan kan dette gøres på en brugervenlig
-måde, så virksomhedens samarbejdspartnere enkelt og simplet kan tilgå systemet 
-uden tidsspilde ?”}\\
-
 Tolkeservicen K. Translation er et lille, enmands tolkebureau med speciale i arabiske 
 sprog. Indehaveren af bureauet er , og hun er som sagt både leder og eneste
 medarbejder i foretagendet. Hendes kunder er offentlige myndigheder som
@@ -75,7 +71,9 @@ kalenderen kunne se alle de tidspunkter, hvorpå det er muligt at booke en
 aftale med K. Translation. Disse ledige tidspunkter kan evt. markeres med
 grønt. Allerede indgåede aftaler markeres med rødt for at tydeliggøre
 denne forskel. Når KT's kunde har besluttet sig for en dato og et tidspunkt,
-taster vedkommende dette ind i systemet, og aftalen gemmes i databasen og
+taster vedkommende dette ind i systemet. Derefter skal kunden oplyse typen på
+arbejdet; om det er mundligt eller skriftligt tolkearbejde, simultantolkning
+eller andet arbejde. Aftalen gemmes så i databasen og
 vises herefter i kalenderen. Det er vigtig for KT's ejer, at hendes
 samarbejdspartnere ikke skal bruge alt for lang tid på at booke en aftale, så
 enkelhed og intuitivitet skal prioriteres højt.\\
@@ -109,6 +107,8 @@ krav kan ses i den efterfølgende liste.\\
 \item Efter succesfuldt login tilgår kunden kalenderen. Det skal være muligt
 	for kunden at søge i kalenderen efter ledige tidspunkter udfra kriterier 
 	som dato og klokkeslet. 
+\item KT's kunde skal vælge typen på arbejdet inden for et antal forudbestemte
+	kategorier.
 \item Der skal sendes en bekræftende email tilbage til kunden, efter at
 	vedkommende har booket en tid i kalenderen. Det blev af KT foreslået,
 	at kunden modtager et vCard   
@@ -255,15 +255,18 @@ KT skal have muligheden for løbende at tilføje kunder til databasen. & 3 & Hø
 & \\ \hline
 Man skal som kunde modtage en bekræftende email efter at have lavet en aftale
 i kalenderen. & 4 & Middel &   \\ \hline
+Som kunde bliver man præsenteret for en lille menu, hvor man skal vælge typen
+på arbejdet. & 5 & Lav & \\ \hline
 Som kunde skal man kunne søge i kalenderen ved hjælp af dato eller klokkeslet.
-& 5  & Middel &   \\ \hline
+& 6  & Middel &   \\ \hline
 Indehaveren af KT vil gerne kunne synkronisere sin eksterne kalender med
-hjemmesidens kalender og på den måde overføre sine private aftale. & 6 & Lav &
+hjemmesidens kalender og på den måde overføre sine private aftale. & 7 & Lav &
 \\ \hline
 KT ønsker en hjemmeside med kontaktinformation, billeder og et enkelt design.
-& 7 & Middel & 12 \\ \hline
+& 8 & Middel & 12 \\ \hline
 \end{tabular}
-\caption{\textbf{Tabel 1} Produkt Backlog}
+\end{center}
+\begin{center}\textbf{Tabel 1} Produkt Backlog
 \end{center}
 \vspace{0.5cm}
 
@@ -299,8 +302,13 @@ efterfølgende sprint.
 		\hline
 
 	\end{tabular}
-\caption{\textbf{Tabel 2} Sprint Backlog}
 \end{center}
+
+\begin{center}
+\textbf{Tabel 2} Sprint Backlog
+\end{center}
+
+\vspace{0.5cm}
 		
 
 \section{Anvendelsesområde}
@@ -402,11 +410,14 @@ Her følger en liste af de klasser vi har identificeret i problemområdet:
 \item Bruger: Kunde, administrator, indehaver. Går igen fra
 	anvendelsesområdet
 \item To interfaces. Et til kunderne og et til administratoren
+\item Et kundekartotek, hvor KT's indehaver løbende kan tilføje kunder
 \item Kalenderen, som kunderne kan bruge, når de skal finde en ledig tid, og
 	som KT's indehaver kan bruge i sit daglige, travle arbejde
 \item Aftale. Kunderne booker en aftale i kalenderen.
 \item En aftale kan både være aflyst og opfyldt, hvis den ikke længere er
 	aktuel
+\item Da KT har både mundtlige, skriftlige og andre opgaver, skal kunden
+	oplyse typen på arbejdet.
 \item Når kunden har booket en aftale, sendes der en bekræftende email tilbage
 	til kunden med det aftalte tidpunkt
 \item KT's indehaver har et ønske om at kunne synkronisere hendes eksterne,
@@ -418,12 +429,10 @@ brugerne først møder systemet. Systemadministratoren får sit eget selvstændi
 interface, idet vedkommende skal kunne tilgå systemet med samtlige
 rettigheder. Som vi også nævnte under gennemgangen af anvendelsesområdet, så
 skal KT's indehaver alene i kraft af, at hun er eneste medarbejder, også have
-adgang til systemet gennem administratorinterfacet. Det betyder også, at vi efter
-implementeringen er nødt til at undervise hende grundigt i brugen, og at vi
-fabrikerer nogle enkle og præcise manualer, hun efterfølgende kan slå op i.
-KT's kunder vil også blive præsenteret for et login interface, når de
-navigerer til hjemmesiden. Efter login vil der være adgang til kalender og
-bookingsystemet. \\
+adgang til systemet gennem administratorinterfacet, så hun f.eks. kan
+tilføje nye kunder til kundekartoteket. KT's kunder vil også blive præsenteret
+for et login interface, når de navigerer til hjemmesiden. Efter login vil der 
+være adgang til kalender og bookingsystemet. \\
 Omdrejningspunktet i problemområdet må siges at være kalenderen, da hele
 systemets berettigelse hviler på denne. Vi skal have fundet en eller anden
 kalenderform, der passer til opgaven og KT's arbejdsgange. Indehaveren af K.
@@ -445,7 +454,8 @@ bekræftende email med dato og tidspunkt. Dette ses til højre i UML-diagrammet,
 hvor emailen autogeneres og sendes tilbage til kunden. Vi har suppleret aftale
 klassen med to tilhørende klasser: aflyst og opfyldt, som er de to tilstande,
 en aftale kan være i. (En igangværende aftale har vi ikke fundet vigtig nok
-til at modellere). Der skal i kalenderen være mulighed for at aflyse en
+til at modellere).\\
+Der skal i kalenderen være mulighed for at aflyse en
 allerede indgået aftale, og proceduren vil være den samme som ved oprettelsen.
 Kunden logger på, aflyser aftalen og modtager en autogeneret email som
 bekræftigelse. Hvorvidt kunden er interesseret i at beholde gamle og udløbne aftaler 
@@ -466,6 +476,258 @@ implementerede. \\
 Hermed slutter vi gennemgangen af anvendelses- og problemområdet. Den
 ovenstående modellering vil ligge til grund for det videre design og endelige
 
+
+\section{Use-cases}
+I dette afsnit vil vi beskrive og analysere de vigtigste funktionelle
+egenskaber ved systemet. Udgangspunktet er kravindsamlingen, som her udvikles
+til en high-level use case model, hvori vi efterfølgende identificerer de tre
+vigtigste use cases. Vi har samlet alle use cases og præsenterer dem i det
+medfølgende højniveau-diagram. Se figur \ref{fig:use}.
+
+\begin{center}
+\begin{figure}[!ht]
+\includegraphics[width=12cm, height=12cm]{highlevel.pdf}
+\caption{Højniveau-diagram bestående af samtlige identificerede use cases}
+\label{fig:use}
+\end{figure}
+\end{center}
+
+De enkelte use cases er udviklede fra de funktionelle krav, og konteksten er
+problemområdet, der vækkes til live i historierne. 
+Aktørerne i højniveau-diagrammet er alle hentede fra anvendelseområdet.
+Indehaveren af KT er i dette scenario også systemadministrator, idet hun selv vil
+skulle udfylde denne rolle på længere sigt, og derfor er denne aktør ikke
+medtaget som en selvstændig klasse. Vi mener heller ikke, at det vil tilføje
+modellen mere værdi også at modellere systemadministratoren, da vedkommendes
+use cases i så fald vil være et subsæt af indehaverens. Hvis to use cases
+indeholder det samme begrænsede handlingsforløb, har vi modelleret dette med
+et ``include'' forhold. F.eks. kan en potientel kunde søge i kalenderen, både
+når vedkommende opretter en aftale og når vedkommende aflyser en aftale. Dette
+er med til at nedsætte kompleksiteteten i use case modellen og fjerne
+redundans. Det samme gør sig gældende med ``extend'' forholdene, der
+modellerer undtagelser og fejltilstande som f.eks. systemets reaktion på
+ulovlige datoer eller mislykket login.\\
+Vi har valgt de tre vigtigste use cases ud og præsenterer dem her med 
+sekvensdiagrammer. Første use case ``Opret kunde'' kan ses i tabel 3.\\
+
+\begin{tabular}{l p{10cm}}
+Use case navn & Opret kunde \\ \hline
+Deltagere & \nextitem Initieret af KT's indehaver
+            \nextitem Kommunikerer med kunde \\ \hline
+Handlingsforløb &
+	\nextitem Indehaveren af KT logger på systemet som administrator. 
+	\nextitem Administratorinterfacet viser menuen.
+	\nextitem Indehaveren navigerer til menupunktet, hvor man kan tilføje nye
+		kunder.
+		\nextitem Interfacet præsenterer en formular til indehaveren
+	\nextitem KT's indehaver udfylder samtlige formularfelter med
+		kundens stamdata og anden kontaktinformation. Derefter
+		sender hun formularen.		
+	\nextitem Administratorinterfacet tilføjer kunden til kundekartoteket
+	og autogenererer en email, der sendes til den aktuelle kunde
+		med besked om, at vedkommende nu kan logge på systemet for at
+		booke en tid.
+	\nextitem KT's indehaver logger af systemet. 
+	\nextitem Interfacet lukkes.
+	\\ \hline
+	Indgangs betingelse &
+		\nextitem KT's indehaver er logget på administratorinterfacet. 
+		\nextitem Pågældende kunde er ikke oprettet i kundekartoteket. 
+		\\ \hline
+Exit betingelse & 
+	\nextitem Pågældende kunde er nu tilføjet til
+			kundekartoteket.
+		\nextitem Der ligger en bekræftende email i den pågældende kundes
+			indbakke.
+		\nextitem KT's indehaver er logget af systemet.\\ \hline
+\end{tabular}
+\begin{center}
+\textbf{Tabel 3} Opret kunde use case.
+\end{center}
+\vspace{0.5cm}
+
+Denne use case beskriver, hvordan K. Translations indehaver opretter en ny
+kunde i kundedatabasen. I vores gennemgang vil vi fokusere på at identificere
+``entity'', ``boundary'' og ``control'' objekterne i use casen, og dette kan 
+ses som en forløber for vores valg af ``Model-View-Controller'' 
+arkitekturen og Django frameworket i afsnittet omhandlende softwarearkitektur,
+eftersom ``Model'' kan kortlægges til ``entity'', ``view'' til ``boundary'' 
+og ``controller'' til ``control''. I det efterfølgende vil vi dog bruge de 
+danske betegnelser, som er henholdsvis entitet, grænseflade og kontrol. \\
+De to aktører i use casen er KT's indehaver og en kunde. Indehaveren
+igangsætter use casen og er den aktive part, mens kunden kun medvirker
+passivt. Grænsefladeobjekterne i use casen er administratorinterfacet, hvor indehaveren
+logger på systemet, og formularen, hvor hun indtaster kundens stamdata. Den
+bekræftende email er også en del af grænsefladen, selvom den ikke går til 
+indehaveren men til kunden. Kundekartoteket er den ene entitet i use casen og
+kunde den anden. Her tænker vi ikke på kunden som aktør, men som en entitet,
+der oprettes undervejs udfra de indtastede stamdata. Det er umiddelbart
+lettere at identificere kontrollen i det medfølgende sekvensdiagram, så vi
+henviser til figur \ref{fig:opret}. Her fremgår det, at systemet har en
+administrator kontrol, der er ansvarlig for at oprette entiteten: Kunde og
+grænsefladen: Email samt Aftaleformular. Dette er måske snarere en for tidlig
+truffet design beslutning, som ikke fremgår af use casen, men krontrol objekter
+skabes ofte af grænseflader, der tilgås af aktøren for at igangsætte handlingsforløbet.    
+
+\begin{figure}[!ht]
+\includegraphics[width=14cm, height=10cm]{seqtwo.pdf}
+\caption{Sekvensdiagram for Opret kunde use case}
+\label{fig:opret}
+\end{figure}
+
+Den anden use case, vi har valgt, hedder ``Opret aftale''. Se tabel 4.  Her 
+logger en kunde på systemet for at booke en aftale med tolkeservicen, og
+vedkommende skal både oplyse dato, klokkeslet og opgavetype. Igen er der to
+aktører: kunden og KT's ejer. Men rollerne er byttede om i forhold til den
+første use case. Nu er kunden den aktive part, og KT's ejer er den passive,
+idet hun kun deltager i use casen for at modtage en email.\\
+Grænsefladeobjekterne er KT's hjemmeside, som use casen indledes fra, og
+formularerne, der udfyldes af kunden undervejs. Den bekræftende email er
+ligeledes en del af grænsefladen. Kalenderen og aftalen er entiteter, og som
+det fremgår af det medfølgende sekvensdiagram, så udgøres kontrolobjektet af en
+``kalender controller''. Se figur \ref{fig:aft}. 
+
+
+\begin{tabular}{l p{10cm}}
+Use case navn & Opret aftale \\ \hline
+Deltagere & \nextitem Initieret af KT's kunde
+            \nextitem Kommunikerer med Indehaveren af KT\\ \hline
+Handlingsforløb &
+	\nextitem KT's kunde navigerer til KT's hjemmeside, hvor kunden logger
+	ind med det personlige password.
+	\nextitem Kalender kontrollen henter kalenderen og viser den til
+	kunden.
+	\nextitem Kunden vælger at oprette en aftale.
+	\nextitem Kalender kontrollen henter en formular, som kunden skal
+	udfylde.
+	\nextitem Kunden indtaster datoen og klokkeslettet for den ønskede 
+	aftale og bekræfter.
+	\nextitem Krontrollen validerer dato samt klokkeslet og præsenterer
+	kunden for en menu med forskellige aftaletyper.
+	\nextitem Kunden vælger den ønskede aftaletype og bekræfter.
+	\nextitem Krontrollen opretter aftalen i kalenderen og sender
+	automatisk en email til både kunden og indehaveren af KT. 
+	\nextitem Kunden logger af kalenderen.
+	\\ \hline
+	Indgangs betingelse &
+		\nextitem KT's kunde er logget på kalenderen. 
+		\nextitem Kalenderen indeholder ingen aftaler på det af kunden
+		ønskede tidspunkt.
+		\\ \hline
+Exit betingelse & 
+	\nextitem Der er oprettet en aftale i kalenderen på det ønskede
+	tidspunkt. 
+		\nextitem Der ligger en bekræftende email i den pågældende kundes
+			indbakke.
+		\nextitem Det ligger en email i KT's indehavers
+			indbakke med dato og tidspunkt for aftalen. 
+		\nextitem Kunden er logget af systemet.\\ \hline
+		Kvalitets krav & Da det er muligt for kunden at søge i
+		kalenderen, kan denne use case på et vilkårligt tidspunkt
+		inkludere use casen  ``Søg i kalender''. Hvis dette sker, kan
+		kunden søge i kalenderen, enten ved at bladre frem en dag eller uge
+		ad gangen eller ved at søge på en dato længere ude i
+		fremtiden.\\ \hline
+\end{tabular}
+\begin{center}
+\textbf{Tabel 4} ``Opret aftale'' use case.
+\end{center}
+\vspace{0.5cm}
+
+Igen består første kolonne af den initierende aktør, anden kolonne er
+grænsefladen, som aktøren bruger til at igangsætte use casen, og tredie
+kolonne indeholder kontrol objektet, som undervejs når at oprette to
+grænsefladeobjekter mere samt endnu en entitet.
+
+\begin{figure}[!ht]
+\includegraphics[width=14cm, height=11cm]{seq.pdf}
+\caption{Sekvensdiagram for ``Opret aftale'' use case}
+\label{fig:aft}
+\end{figure}
+
+Efter at have vist to almindelige use cases, har vi til sidst valgt, 
+at fokusere på de extraordinære forhold, der gør sig gældende ved ``extend''
+use cases. Derfor viser vi to små use cases: ``Optaget'' og ``Ulovlig
+dato'', men vi gennemgår kun selve undtagelserne, eftersom konteksten for
+disse use cases er ``Opret aftale'' use casen fra tabel
+1 og figur \ref{fig:aft}. Handlingsforløbene før og efter undtagelserne træder i
+kraft vil være præcise gentagelser af ``Opret aftale'' use casen; man skal
+altså forestille sig denne use case på et givent tidspunkt i forløbet
+blive udvidet med en af de følgende to use cases. Se tabel 5 og 6. 
+
+
+
+\begin{tabular}{l p{10cm}}
+Use case navn & Optaget \\ \hline
+Deltagere & \nextitem Kommunikerer med KT's kunde. 
+            \\ \hline
+Handlingsforløb &
+	\nextitem Kunden oplyser typen på opgaven og bekræfter. 
+	\nextitem Kalender kontrollen prøver at oprette en aftale i kalenderen
+	på det givne tidspunkt, men bliver nægtet adgang, fordi der allerede
+	ligger en aftale på dette tidspunkt. Kontrollen beder kunden om at
+	finde en ny tid.
+	\nextitem Kunden indtaster et nyt tidspunkt i formularen og bekræfter. 
+	\nextitem Formularen validerer tidspunktet.
+	\\ \hline
+	Indgangs betingelse &
+		\nextitem Denne use case udvider ``Opret aftale'' use casen.
+		Den initieres, når kontrollen prøver at indsætte en aftale i
+		kalenderen på et tidspunkt, hvor der i forvejen eksisterer en
+		aftale. 
+		\\ \hline
+Exit betingelse & \dots
+	\\ \hline
+\end{tabular}
+\begin{center}
+\textbf{Tabel 5} ``Extend'' use case: ``Optaget''.       
+\end{center}
+\vspace{0.5cm}
+
+
+\begin{tabular}{l p{10cm}}
+Use case navn & Ulovlig dato \\ \hline
+Deltagere & \nextitem Kommunikerer med KT's kunde.
+            \\ \hline
+Handlingsforløb &
+	\nextitem Kunden oplyser kontrollen om, at vedkommende vil oprette en
+	aftale.
+	\nextitem Kontrollen opretter en formular til aftalen.
+	\nextitem Kunden indtaster dato og klokkeslet for aftalen og
+	bekræfter.
+	\nextitem Formularen prøver at validere tidspunktet, men den fejler.
+	Kontrollen beder kunden indtaste et nyt tidspunkt.
+	\nextitem Kunden indtaster dato og klokkeslet for den nye aftale og
+	bekræfter.
+	\nextitem Formularen prøver at validere tidspunktet og godkender.
+	Kontrollen spørger kunden om opgavetypen.
+	\nextitem Kunden oplyser opgavetypen og bekræfter.
+	\\ \hline
+	Indgangs betingelse &
+		\nextitem Denne use case udvider ``Opret aftale'' samt ``Aflys
+		aftale'' use cases. Den initieres, når formularen ikke kan
+		validere tidspunktet for kundens aftale, fordi kunden har
+		indtastet et ikke eksisterende tidspunkt.  
+		\\ \hline
+Exit betingelse & \dots
+	\\ \hline
+\end{tabular}
+\begin{center}
+\textbf{Tabel 6} ``Extend'' use case: ``Ulovlig dato''.       
+\end{center}
+\vspace{0.5cm}
+
+Grænseflade-, kontrol- og entitetobjekterne i de to ``extend'' use cases vil
+være magen til objekterne i de oprindelige use cases, der bliver udvidet, som
+det også fremgår af de medfølgende sekvensdiagrammer. Se figur
+\ref{fig:extseq} for begge sekvensdiagrammer. 
+
+
+\begin{figure}[!ht]
+\includegraphics[width=13cm, height=15cm]{ext.pdf}
+\caption{Sekvensdiagram for ``Optaget'' samt  ``Ulovlig dato''.}
+\label{fig:extseq}
+\end{figure}
 
 \section{Softwarearkitektur}
 Det kan være en stor udfordring, at finde den rigtige softwarearkitektur i et
@@ -523,11 +785,9 @@ programmeringssproget Python. Det er også et godt valg, fordi det ene medlem i
 vores tomandsgruppe har erfaring med Python, og det andet medlem ikke har.
 Python kan læres relativt hurtigt, så det ene medlem får muligheden for at
 lære det undervejs i projektet, mens det andet medlem kan lære det fra sig
-evt. med pair-programming. \\ 
+evt. gennem pair-programming. \\ 
 
 
-\section{Use-cases}
-\section{Projektplan}
 
 \section{No silver bullit}
 \section{ den anden artikel}
