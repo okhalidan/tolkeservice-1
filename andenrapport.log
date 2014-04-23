@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.3.29)  21 APR 2014 23:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.3.29)  24 APR 2014 01:54
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -447,207 +447,194 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 
 
 [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 45--80
+Underfull \hbox (badness 10000) in paragraph at lines 45--77
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--91
+Underfull \hbox (badness 10000) in paragraph at lines 79--88
 
  []
 
 [4]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 92.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 89.
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--98
+Underfull \hbox (badness 10000) in paragraph at lines 90--95
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 102.
-
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 99.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 102.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 99.
  [5]
-Underfull \hbox (badness 10000) in paragraph at lines 126--138
+Underfull \hbox (badness 10000) in paragraph at lines 123--135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--148
+Underfull \hbox (badness 10000) in paragraph at lines 139--145
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 180--202
+Underfull \hbox (badness 10000) in paragraph at lines 175--197
 
  []
 
-[7] <burndown.pdf, id=28, 587.19376pt x 442.65375pt>
-File: burndown.pdf Graphic file (type pdf)
- <use burndown.pdf>
-Package pdftex.def Info: burndown.pdf used on input line 228.
-(pdftex.def)             Requested size: 426.7932pt x 341.45232pt.
-
-Overfull \hbox (36.7932pt too wide) in paragraph at lines 228--229
- [][] 
- []
-
-[8] [9 <./burndown.pdf>]
-Overfull \vbox (14.50005pt too high) detected at line 291
- []
-
-
-Overfull \vbox (29.00003pt too high) detected at line 298
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 300--300
-[]\T1/ptm/m/n/12 Udvid ba-sis-ska-be-lo-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 300--300
-\T1/ptm/m/n/12 nen med ``extend''-
- []
-
-
-Overfull \hbox (0.26895pt too wide) in paragraph at lines 287--305
- [] 
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 315--319
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 201--205
 
  []
 
-<anvendelsesomr.pdf, id=68, 444.66125pt x 356.33125pt>
+<anvendelsesomr.pdf, id=28, 443.6575pt x 382.42876pt>
 File: anvendelsesomr.pdf Graphic file (type pdf)
+ <use anvendelsesomr.pdf>
+Package pdftex.def Info: anvendelsesomr.pdf used on input line 208.
+(pdftex.def)             Requested size: 312.97488pt x 284.53922pt.
 
-<use anvendelsesomr.pdf>
-Package pdftex.def Info: anvendelsesomr.pdf used on input line 321.
-(pdftex.def)             Requested size: 341.43353pt x 312.99068pt.
-
-Overfull \hbox (0.36096pt too wide) in paragraph at lines 326--332
+Overfull \hbox (0.36096pt too wide) in paragraph at lines 214--220
 \T1/ptm/m/n/12 Umiddelbart er an-ven-del-ses-om-rå-det me-get be-græn-set. Vi h
 ar fun-det føl-gen-de klas-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--390
+[8 <./anvendelsesomr.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 228--274
 
  []
 
-[11] [12 <./anvendelsesomr.pdf>] [13]
-<problemomr.pdf, id=82, 403.5075pt x 398.48875pt>
+[9] <problemomr.pdf, id=38, 445.665pt x 413.545pt>
 File: problemomr.pdf Graphic file (type pdf)
  <use problemomr.pdf>
-Package pdftex.def Info: problemomr.pdf used on input line 402.
-(pdftex.def)             Requested size: 341.43758pt x 341.44716pt.
- [14 <./problemomr.pdf>] [15] [16] <highlevel.pdf, id=95, 393.47pt x 392.46625p
-t>
-File: highlevel.pdf Graphic file (type pdf)
+Package pdftex.def Info: problemomr.pdf used on input line 285.
+(pdftex.def)             Requested size: 341.43584pt x 341.43753pt.
 
-<use highlevel.pdf>
-Package pdftex.def Info: highlevel.pdf used on input line 489.
+[10] [11 <./problemomr.pdf>] [12] [13]
+<highlevel.pdf, id=55, 393.47pt x 392.46625pt>
+File: highlevel.pdf Graphic file (type pdf)
+ <use highlevel.pdf>
+Package pdftex.def Info: highlevel.pdf used on input line 370.
 (pdftex.def)             Requested size: 341.42755pt x 341.45483pt.
 
-Overfull \hbox (9.38507pt too wide) in paragraph at lines 495--512
-\T1/ptm/m/n/12 pro-blem-om-rå-det, der væk-kes til li-ve i hi-sto-ri-er-ne. Ak-
-tø-rer-ne i højniveau-diagrammet
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 495--512
+Underfull \hbox (badness 10000) in paragraph at lines 376--393
 
  []
 
-[17 <./highlevel.pdf>]
-Overfull \hbox (31.74352pt too wide) in paragraph at lines 513--544
+[14 <./highlevel.pdf>]
+Overfull \hbox (31.74352pt too wide) in paragraph at lines 394--425
 [][] 
  []
 
-[18] <seqtwo.pdf, id=105, 412.54124pt x 243.91125pt>
+[15] [16] <seqtwo.pdf, id=68, 431.6125pt x 249.93375pt>
 File: seqtwo.pdf Graphic file (type pdf)
  <use seqtwo.pdf>
-Package pdftex.def Info: seqtwo.pdf used on input line 573.
-(pdftex.def)             Requested size: 398.3453pt x 284.53015pt.
+Package pdftex.def Info: seqtwo.pdf used on input line 455.
+(pdftex.def)             Requested size: 398.3528pt x 284.5575pt.
 
-Overfull \hbox (8.3453pt too wide) in paragraph at lines 573--574
+Overfull \hbox (8.3528pt too wide) in paragraph at lines 455--456
 [][] 
  []
 
 
-Overfull \hbox (31.74352pt too wide) in paragraph at lines 591--632
+Underfull \hbox (badness 10000) in paragraph at lines 460--466
+
+ []
+
+[17 <./seqtwo.pdf>]
+Overfull \hbox (31.74352pt too wide) in paragraph at lines 468--509
 [][] 
  []
 
-[19]
-Overfull \vbox (254.02792pt too high) has occurred while \output is active []
-
-
-[20 <./seqtwo.pdf>] <seq.pdf, id=116, 435.6275pt x 333.245pt>
+[18] <seq.pdf, id=78, 438.63875pt x 408.52625pt>
 File: seq.pdf Graphic file (type pdf)
  <use seq.pdf>
-Package pdftex.def Info: seq.pdf used on input line 643.
-(pdftex.def)             Requested size: 398.33601pt x 313.00116pt.
+Package pdftex.def Info: seq.pdf used on input line 526.
+(pdftex.def)             Requested size: 398.34532pt x 312.99532pt.
 
-Overfull \hbox (8.33601pt too wide) in paragraph at lines 643--644
-[][] 
- []
-
-[21 <./seq.pdf>]
-Overfull \hbox (31.74352pt too wide) in paragraph at lines 660--682
+Overfull \hbox (8.34532pt too wide) in paragraph at lines 526--527
 [][] 
  []
 
 
-Overfull \hbox (31.74352pt too wide) in paragraph at lines 688--715
+Underfull \hbox (badness 10000) in paragraph at lines 531--540
+
+ []
+
+[19 <./seq.pdf>]
+Overfull \hbox (31.74352pt too wide) in paragraph at lines 543--565
 [][] 
  []
 
-[22] <ext.pdf, id=126, 431.6125pt x 505.89pt>
+
+Overfull \hbox (31.74352pt too wide) in paragraph at lines 571--598
+[][] 
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 603--607
+
+ []
+
+<ext.pdf, id=89, 433.62pt x 520.94624pt>
 File: ext.pdf Graphic file (type pdf)
  <use ext.pdf>
-Package pdftex.def Info: ext.pdf used on input line 727.
-(pdftex.def)             Requested size: 369.89526pt x 426.7973pt.
+Package pdftex.def Info: ext.pdf used on input line 610.
+(pdftex.def)             Requested size: 369.90204pt x 426.79713pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 733--752
+Underfull \hbox (badness 10000) in paragraph at lines 629--648
 
  []
 
-[23] [24 <./ext.pdf>] <mvc.pdf, id=136, 270.00874pt x 258.9675pt>
+[21] [22 <./ext.pdf>] <mvc.pdf, id=99, 270.00874pt x 258.9675pt>
 File: mvc.pdf Graphic file (type pdf)
+ <use mvc.pdf>
+Package pdftex.def Info: mvc.pdf used on input line 651.
+(pdftex.def)             Requested size: 298.76152pt x 270.3314pt.
 
-<use mvc.pdf>
-Package pdftex.def Info: mvc.pdf used on input line 755.
-(pdftex.def)             Requested size: 284.53517pt x 256.10199pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 760--789
+Underfull \hbox (badness 10000) in paragraph at lines 656--684
 
  []
 
-[25 <./mvc.pdf>] [26] (./andenrapport.aux) ) 
+[23] [24 <./mvc.pdf>] <burndown.pdf, id=109, 587.19376pt x 442.65375pt>
+File: burndown.pdf Graphic file (type pdf)
+
+<use burndown.pdf>
+Package pdftex.def Info: burndown.pdf used on input line 711.
+(pdftex.def)             Requested size: 369.88026pt x 256.08417pt.
+ [25 <./burndown.pdf>] [26]
+Overfull \vbox (14.50005pt too high) detected at line 774
+ []
+
+
+Overfull \vbox (29.00003pt too high) detected at line 781
+ []
+
+
+Overfull \hbox (0.26895pt too wide) in paragraph at lines 770--788
+ [] 
+ []
+
+[27] [28] [29] [30] [31] (./andenrapport.aux) ) 
 Here is how much of TeX's memory you used:
- 3041 strings out of 493307
- 38476 string characters out of 6139905
- 112745 words of memory out of 5000000
- 6425 multiletter control sequences out of 15000+600000
- 38638 words of font info for 54 fonts, out of 8000000 for 9000
+ 3036 strings out of 493307
+ 38418 string characters out of 6139905
+ 111753 words of memory out of 5000000
+ 6423 multiletter control sequences out of 15000+600000
+ 30245 words of font info for 47 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 37i,8n,23p,245b,285s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/font
-s/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on andenrapport.pdf (26 pages, 758038 bytes).
+ 37i,8n,23p,245b,273s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/f
+onts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on andenrapport.pdf (31 pages, 836683 bytes).
 PDF statistics:
- 164 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
+ 181 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
