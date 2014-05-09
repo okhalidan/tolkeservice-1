@@ -1,0 +1,29 @@
+
+
+h4 {font-size : 15px;
+	font-family : Courier, arial, georgia;
+}
+
+table.appointment tr {
+	height : 10px;
+}
+
+
+td.td_clock{
+	padding-right: 15px;
+}
+
+input.day {
+	border-top : None;
+	border-left : None;
+	border-right : None;
+	border-bottom : 1px solid #ccc;
+}
+
+
+table.appointment {
+	border : 1px solid #ccc;
+	padding: 5px;
+
+
+}

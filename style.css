@@ -1,0 +1,27 @@
+
+thead.days{
+	font-family: "Times New Roman", Georgia, Serif;
+	background-color: #eee;
+	height: 30px;
+}
+
+
+.calender td{
+	border:1px solid #ccc;
+	height: 80px;
+	vertical-align: top;
+	font-size: 15px;
+	padding: 5px;
+
+}
+
+table.calender {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+
+h2 {
+	font-size:25px;
+	color: CadetBlue;
+}
