@@ -69,8 +69,8 @@ brugervenlighed, sådan at hendes samarbejdspartnere uden foregående undervisni
 hurtigt selv kan overskue kalenderen og booke en aftale. Slutteligt vil Souzane også have et system, hvor hun løbende kan tilføje nye samarbejdspartnere til den database, der gemmer på alle data. \\
 
 \section{Anvendelsesområde}
-Vi vil i dette afsnit kigge på den ene af de to centrale dele af modelleringen, nemlig anvendelsesområdet. Den anden del, problemområdet, vil vi modellere efter, at vi har gennemgået use cases og skrevet en kravspecifikation, så vores brugerforståelse og klarlæggelsen af systemfunktionaliteten kan ligge til grund for modelleringen af problemområdet. \\ 
-Umiddelbart er anvendelsesområdet meget begrænset. Vi har fundet følgende klasser, der skal modelleres i anvendelsesområdet:
+Vi vil i dette afsnit påbegynde modelleringen af systemet. Vi begynder med at analysere den ene af de to centrale dele, nemlig anvendelsesområdet. Den anden del, problemområdet, vil vi modellere efter, at vi har gennemgået use cases og skrevet en kravspecifikation, så vores brugerforståelse og klarlæggelsen af systemfunktionaliteten kan ligge til grund for modelleringen af problemområdet. \\ 
+Umiddelbart er anvendelsesområdet meget begrænset. Vi har fundet følgende klasser, der skal analyseres i anvendelsesområdet:
 
 \begin{itemize}
 \item K. Translation med indehaver (som samtidig er eneste medarbejder).
@@ -79,276 +79,39 @@ Umiddelbart er anvendelsesområdet meget begrænset. Vi har fundet følgende kla
 \item Eksternt, privat kalendersystem.
 \end{itemize}
 
-K. Translations indehaver Souzane, skal som den første modelleres i anvendelsesområdet. Eftersom hun er eneste medarbejder i bureauet, kan hun potentielt set komme til at optræde i tre forskellige roller i anvendelsesområdet. For det første er hun modelleret som indehaver af K. Translation, så hun over for sine kunder bliver den ansvarlige for systemet, når det er færdigudviklet, implementeret og kører. For det andet bliver hun også en almindelig bruger af kalenderen, da hun kommer til at bruge den i sit daglige arbejde. Hun vil i et vist omfang selv komme til at ligge aftaler ind i kalenderen, og hun kan bruge den til at planlægge sin arbejdsdag. Endvidere skal hun selv oprette nye brugere til systemet, og derfor er overgangen til hendes tredie rolle som systemadministrator også flydende. Da hun ikke har andre ansatte, er det nødvendigt, at hun selv får en basal træning i systemadministration, så hun selv kan håndtere systemet på længere sigt, og derfor får hun også samtlige rettigheder, så hun kan tilgå hele systemet. Behovet for dette vil dog falde betragteligt, hvis vi placerer det endelige system hos et webhotel eller hos en anden udbyder af serverplads. Vi vil i det videre arbejde antage, at Souzane er en "almindelig computerbruger", der er vant til at sende mails, bruge facebook og orientere sig på flere platforme. Men hun har også understreget nødvendigheden af, at den endelige it-løsning skal være let samt ukompliceret at gå til, så hun ikke skal bruge tid på systemets drift i hendes travle hverdag.
-En anden klasse, der skal modelleres i anvendelsesområdet, er KT's kunder og samarbejdspartnere.
-
- Denne klasse er omdrejningspunktet for hele systemet, da
-en af hovedpræmisserne for vores it-løsning er, at KT's kunder på en hurtig og
-overskuelig måde kan booke en aftale med tolkeservicen. Kundegrundlaget er  
-offentlige myndigheder som politi, ministerier og hospitaler samt private
-aktører som advokater og andre samarbejdspartnere. Når de møder hjemmesiden, skal
-de kunne tilgå kalenderen via et loginsystem med deres EAN-nummer og derfra
-føres videre til selve kalenderen, hvor der kan bookes en aftale. Vi må
-forvente, at kundesegmentet har meget svingende it-kundsskaber, men at de i
-kraft af deres daglige arbejde er vant til at arbejde med diverse login- og 
-kalendersystemer, der findes overalt i f.eks. den offentlige sektor. \\
-
-  
-Vi har udvidet modellen med en ekstern kalenderklasse, der kan synkronisere 
-Souzanes private kalender med vores kalendersystem og overføre hendes private
-aftaler. Det skal dog siges, at vi på nuværende tidspunkt er meget usikre på
-denne funktion, og at vi potentielt må fortælle K. Translation, at dette ligger
-uden for vores formåen. Derfor har den også i UML-diagrammet fået multiplicitet 
-0, 1, da vi højest regner med 1 ekstern kalender, der skal integreres.\\
-
-
-
-\section{Projektaftale}
-Inden vi fortsætter med modelleringen og designet af systemet, vil vi beskrive
-præcist, hvilke krav og forventninger kunden K. Translation har til vores
-endelige løsning. Vi har delt den følgende kravspecifikation op i to dele:
-high-level funktionelle krav, som dækker samspillet mellem anvendelsesområdet og
-kalender- og bookingsystemet uden implementeringsspecifikke detaljer. Og
-non-funktionelle krav, der dækker over ikke direkte funktionelle aspekter som
-bl.a. brugervenlighed og pålidelighed. Idet kravspecifikationen senere ligger
-til grund for afprøvningen af systemet, er det vigtigt, at den er ``komplet,
-konsistent, entydig og korrekt.''\cite{oose}[p.~122] \\
-
-\subsection{Funktionelle krav}
-På det første kundemøde beskrev indehaveren af K. Translation, hvilke
-forventninger og ønsker hun havde til det færdige produkt: et integreret
-kalender- og bookingsystem. Dette dannede grundlaget for kravspecifikationen, som
-nu udgører rammerne indenfor hvilke, vi udvikler systemet. De funktionelle
-krav kan ses i den efterfølgende liste.\\
-
-
-\rule{120mm}{1mm}
-\begin{itemize}
-\item K. Translation ønsker en it-løsning, der indeholder en kalender og et
-	bookingsystem, som af bureauets kunder kan tilgås over internettet.
-\item På hjemmesiden skal KT's kunder præsenteres for en login menu, hvor de
-	logger på systemet med virksomhedens eller institutionens EAN-nummer
-	og et selvvalgt password. 
-\item Efter succesfuldt login tilgår kunden kalenderen. Det skal være muligt
-	for kunden at søge i kalenderen efter ledige tidspunkter.
-	Søgekriterierne er dato og klokkeslet. 
-\item KT's kunde skal vælge typen på arbejdet inden for et antal forudbestemte
-	kategorier.
-\item Der skal sendes en bekræftende email tilbage til kunden, efter at
-	vedkommende har booket en tid i kalenderen. Det blev af KT foreslået,
-	at kunden modtager et vCard. KT modtager ligeledes en email med dato,
-	klokkeslet, kunde op opgavetype.
-\item Det skal være muligt for K. Translation løbende at tilføje flere kunder 
-	eller samarbejdspartnere til databasen. 
-\item KT's indehaver vil gerne kunne overføre sine private aftaler fra en
-	ekstern kalender til vores kalendersystem. Hun forestiller sig en form
-	for synkronisering, men vi har fra start gjort hende det klart, at
-	dette måske ligger udenfor det mulige. 
-\end{itemize}
-\rule{120mm}{1mm}
-\vspace{0.5cm}
-
-Vi har i samarbejde med KT udviklet den ovenstående liste af funktionelle
-krav, men KT havde fra start et godt billede af, hvilke funktioner og egenskaber det
-færdige produkt skulle indeholde. Sammen identificerede vi først de aktører, der skal 
-kunne tilgå systemet; altså i virkeligheden anvendelsesområdet. Derefter
-beskrev KT's indehaver en række typiske scenarier fra hendes daglige arbejde,
-hvor kunder til bureauet booker en tid hos tolkeservicen. Udfra disse
-scenarier kunne vi opstille flere af de funktionelle krav, og dette arbejde
-kulminerer iøvrigt senere i rapporten i afsnittet omhandlende use cases. Vi
-synes, at de funktionelle krav på en god og dækkende måde beskriver de
-ønsker, som K. Translation har til det færdige program. Det skulle være
-muligt at teste, om vores løsning lever op til alle ovenstående krav, når
-systemet senere skal valideres på baggrund af kravspecifikationen.  \\ 
-
-
-
-\subsection{Non-funktionelle krav}
-Indehaveren af K. Translation kom også med nogle forventninger og ønsker, som
-ikke umiddelbart hører under systemets funktionelle egenskaber. Det er bl.a.
-forventninger om brugervenlighed, pålidelighed og andre svært verificerbare
-egenskaber. Disse ønsker har vi samlet her i afsnittet med de non-funktionelle
-krav sammen med mere implementeringsspecifikke detaljer. Den efterfølgende liste
-indeholder de non-funktionelle krav til systemet.\\
-
-\rule{120mm}{1mm}
-\begin{itemize}
-\item Kalender og bookingsystemet skal placeres på en hjemmeside.
-\item Hjemmesiden skal indeholde K. Translations kontaktinformationer. Der er
-	ikke stillet særlige krav til designet udover, at det skal være enkelt
-	og intuitivt, så personer uden store it-forudsætninger kan navigere på
-	siden og booke en tid.
-\item Alle brugere skal kunne tilgå systemet med en almindelig web browser som
-	Internet Explorer, Firefox eller Google Chrome.
-\item KT's kunder skal hurtigt og uden mulighed for misforståelse kunne skelne ledige
-	tidspunkter i kalenderen fra optagede. Derfor skal ledige tidspunkter
-	være markeret med grøn skrift eller farve, og allerede indgåede aftaler
-	være markeret med rødt.
-\item K. Translation ønsker den letteste og billigste implementering og
-	hosting af systemet. Indehaveren vil have et system, der ikke kræver løbende
-	vedligeholdelse, men som bare ``kører og passer sig selv''.   
-\item Da ministerier, politiet og andre offentlige myndigheder er blandt KT's
-	kunder, må der ikke herske tvivl om systemet integritet og
-	pålidelighed.
-\item Der ønskes præcis og let forståelig dokumentation af systemet. 
-	Især ønsker indehaveren dækkende, enkle manualer i tilfælde af, at hun
-	selv må stå for den løbende vedligeholdelse af systemet og i tilfælde
-	af svigt og andre fejl.
-\item Kalendersystemet og backend databasen må ikke tabe data eller aftaler,
-	da dette betyder tabt indkomst for KT.
-\end{itemize}
-\rule{120mm}{1mm}
-\vspace{0.5cm}
-
-Som det fremgår, vil flere af de nonfunktionelle krav være svært verificerbare. 
-Det er meget svært at fastslå med nogen som helst sikkerhed, hvornår en bruger
-opfatter en hjemmeside som enkel, intuitiv eller let at overskue. Man kan stille
-parametre op, fastsætte gennemgående regler for designet og bruge afprøvede
-metoder, men der kan alligevel ikke gives nogen garantier. Derfor vil vi også
-i en senere rapport bruge tænke-højt-forsøg for at få en ide om, hvor godt
-eller dårligt vores design er i forhold til disse egenskaber. Andre af de
-non-funktionelle krav udspringer af manglen på it-kompetancer internt i bureauet og af
-fraværet af en systemadministrator. Dette betyder højest sandsynligt, at vi 
-placerer det færdige system hos en udbyder af serverplads, da KT i så fald kommer 
-til at stå for et minimum af systemvedligehold. Det vil også være den billigste
-løsning, da anskaffelsen af en server, strøm og evt. køling vil resultere i en 
-betragtelig merudgift. \\
-Da belastningen af systemet ikke forventes at blive særlig høj, kar KT. ingen 
-performancemæssige krav til vores løsning. Der er ingen tidskritiske
-brugerfunktioner, og risikoen for samtidig brug af kalenderen må forventes at
-være minimal. Man kunne godt forestille sig to kunder, der vil booke den samme 
-tid i kalenderen med race condition og deadlock til følge, men backend
-databasens transactionindstillinger burde kunne håndtere dette
-tilfredsstillende. Pålidelighed er på den anden side et vigtigt og naturligt
-issue, da K. Translation ikke kan acceptere, at aftaler tabes eller
-forsvinder. \\ 
-
-		
-
-
-\section{Problemområde}
-Efter at vi har modelleret anvendelsesområdet, er turen kommet til systemets 
-hjerte: problemområdet. For at binde modelleringen sammen går alle 
-klasserne fra anvendelsesområdet igen i problemområdet. Vi præsenterer igen for
-overskuelighedens skyld først et UML-diagram over området. Se figur 
-\ref{fig:problem}. Dernæst kommer der en kort opsummerende liste med klasserne 
-efterfulgt af et længere forklarende afsnit.  
-
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[width=12cm, height=12cm]{problemomr.pdf}
-\caption{UML-diagram over problemområdet}
-\label{fig:problem}
-\end{center}
-\end{figure}
-
-Her følger en liste af de klasser, vi har identificeret i problemområdet:
-
-\begin{itemize}
-\item Bruger: Kunde, administrator, indehaver. Går igen fra
-	anvendelsesområdet.
-\item Tre interfaces. Et til kunderne, et til systemadministratoren og et til
-	KT's indehaver til daglig brug.
-\item Et kundekartotek, hvor KT's indehaver løbende kan tilføje kunder.
-\item Kalenderen, som kunderne kan bruge, når de skal finde en ledig tid, og
-	som KT's indehaver kan bruge i sit daglige, travle arbejde.
-\item Aftale. Kunderne booker en aftale i kalenderen.
-\item En aftale kan både være aflyst og opfyldt, hvis den ikke længere er
-	aktuel.
-\item Da KT har både mundtlige, skriftlige og andre opgaver, skal kunden
-	oplyse typen på arbejdet.
-\item Når kunden har booket en aftale, sendes der en bekræftende email tilbage
-	til kunden med det aftalte tidpunkt, og KT's indehaver får ligeledes
-	en email med dato, klokkeslet og opgavetype.  
-\item KT's indehaver har et ønske om at kunne synkronisere hendes eksterne,
-	private kalender med vores it-løsning.
-\end{itemize}
-
-Vi begynder denne gennemgang af problemområdet med de tre interfaces, hvor
-brugerne først møder systemet. Systemadministratoren får sit eget selvstændige
-interface, idet vedkommende skal kunne tilgå systemet med samtlige
-rettigheder. Som vi også nævnte under gennemgangen af anvendelsesområdet, så
-skal KT's indehaver alene i kraft af, at hun er eneste medarbejder, også have
-adgang til systemet gennem administratorinterfacet, så hun f.eks. kan
-tilføje nye kunder til kundekartoteket. Derudover får KT sit eget interface
-til daglig brug, så Souzane kan gennemgå kalenderen uden at være nervøs for at
-ødelægge aftaler eller data. KT's kunder vil også blive præsenteret
-for et login interface, når de navigerer til hjemmesiden. Efter login vil der 
-være adgang til kalender og bookingsystemet. Det skal være muligt at vise dage, 
-uger og måneder, og brugere skal kunne søge i kalenderen udfra de samme
-kriterier.\\
-Det er også et krav til kalenderen, at kunden let kan skelne mellem ledige
-tidspunkter og allerede bookede aftaler ved hjælp af et farvesystem. Her vil
-ledige tidspunkter være markeret med grøn skrift og aftaler med rød skrift. \\
-Dette fører modelleringen af problemområdet videre til aftaleklassen. Der vil 
-være en naturlig sammenhæng mellem kalender og aftale, og derfor er de
-sammenkoblet ved aggregering. En kunde kan lave en eller flere aftaler på
-samme tid, og vedkommende vil efter hver indgået aftale automatisk modtage en 
-bekræftende email med dato og tidspunkt. Dette ses til højre i UML-diagrammet,
-hvor emailen autogenereres og sendes tilbage til kunden. Vi har suppleret aftale
-klassen med to tilhørende klasser: aflyst og opfyldt, som er de to tilstande,
-en aftale kan være i. (En igangværende aftale har vi ikke fundet vigtig nok
-til at modellere).\\
-Der skal i kalenderen være mulighed for at aflyse en
-allerede indgået aftale, og proceduren vil være den samme som ved oprettelsen.
-Kunden logger på, aflyser aftalen og modtager en autogenereret email som
-bekræftigelse. Hvorvidt KT er interesseret i at beholde gamle og udløbne aftaler 
-i kalenderen, står endnu ikke helt klart. De kunne bibeholdes som en form for
-kalenderhistorie eller logbog, hvis KT skal gennemgå gamle aftaler i
-forbindelse med fakturering eller anden opgørelse, men det ville være mest
-hensigtsmæssigt at sætte en grænse, så databasen ikke fyldes op med gamle,
-ligegyldige aftaler.\\ 
-Det sidste, vi vil berøre i problemområdet, er det usikre punkt om samspillet
-mellem en ekstern kalender og vores eget kodede kalendersystem. KT's indehaver
-har sin egen private Google kalender, som hun gerne vil synkronisere med vores
-it-løsning for at overføre hendes private aftaler, så alt er samlet i èn
-kalender. Kompleksiteten i denne opgave er måske for stor, så måske må
-vi stille K. Translation i udsigt, at private aftaler skal indtastes manuelt i
-kalenderen, men det må vi tage stilling til, når kernefunktionerne er
-implementerede. \\
-Hermed slutter vi gennemgangen af anvendelses- og problemområdet. Den
-ovenstående modellering vil ligge til grund for det videre design og endelige
-system. 
-
-\pagebreak
+K. Translations indehaver Souzane, skal som den første medtages i anvendelsesområdet. Eftersom hun er eneste medarbejder i bureauet, kan hun potentielt set komme til at optræde i tre forskellige roller i anvendelsesområdet. For det første står hun som indehaver af K. Translation, så hun over for sine kunder bliver den ansvarlige for systemet, når det er færdigudviklet, implementeret og kører. For det andet bliver hun også en almindelig bruger af kalenderen, da hun kommer til at bruge den i sit daglige arbejde. Hun vil i et vist omfang selv komme til at ligge aftaler ind i kalenderen, og hun kan bruge den til at planlægge sin arbejdsdag. Endvidere skal hun selv oprette nye brugere til systemet, og derfor er overgangen til hendes tredie rolle som systemadministrator også flydende. Da hun ikke har andre ansatte, er det nødvendigt, at hun selv får en basal træning i systemadministration, så hun selv kan håndtere systemet på længere sigt, og derfor får hun også samtlige rettigheder, så hun kan tilgå hele systemet. Behovet for dette vil dog falde betragteligt, hvis vi placerer det endelige system hos et webhotel eller hos en anden udbyder af serverplads. \\
+Vi vil i det videre arbejde antage, at Souzane er en "almindelig computerbruger", der er vant til at sende mails, bruge facebook og orientere sig på flere platforme. Men hun har også understreget nødvendigheden af, at den endelige it-løsning skal være let samt ukompliceret at gå til, så hun ikke skal bruge tid på systemets drift i hendes travle hverdag. \\
+En anden klasse, der skal medtages i anvendelsesområdet, er KT's kunder og samarbejdspartnere. Kundegrundlaget er  
+offentlige myndigheder som politi, ministerier, uddannelsessteder og hospitaler samt private aktører som advokater og andre samarbejdspartnere. Det kan f.eks være en politibetjent, der har brug for en arabisk tolk til en afhøring; en sekretær i dommervagten, der vil booke Souzane til en sag; eller et hospital, der skal operere en arabisk patient. \\
+ Som det foregår nu, ringer kunderne til Souzane for at booke en tid, og det kan både være akutte henvendelser og henvendelser om tolkearbejde dage eller uger ude i fremtiden. Det er disse telefoniske henvendelser, vi gerne skal have kanaliseret igennem internettet og kalendersystemet i stedet for. Helt akutte sager, hvor Souzane bliver ringet op klokken to om natten, fordi der er brug for hende a.s.a.p., kan vi ikke gøre noget ved, men aftaler med længere frist kan med fordel placeres i kalenderen. \\
+ KT's samarbejdspartnere har også brug for at få udført flere forskellige typer af tolkeopgaver. Der kan være mundtlige opgaver, hvor der skal simultantolkes. Og der kan være skriftlige opgaver (f.eks. et anklageskrift), som Souzane skal have oversat, når hun møder op på det pågældende tidspunkt. Derfor skal kunderne have mulighed for at vedhæfte dokumenter, når de booker en aftale i kalenderen. \\
+Vi må forvente, at kundesegmentet har meget svingende it-kundsskaber, men at de i kraft af deres daglige arbejde er vant til at arbejde med diverse login- og kalendersystemer, der findes overalt i f.eks. den offentlige sektor. \\
+Slutteligt har vi udvidet modellen med en ekstern kalenderklasse, der kan synkronisere Souzanes private kalender med vores kalendersystem og overføre hendes private
+aftaler. Dette er et ønske fra Souzane, idet hun har en meget travl hverdag, hvor private aftaler godt kan ligge i vejen for arbejdsopgaver, og kunderne skal kunne se præcist, hvornår Souzane er tilrådighed. Det skal dog siges, at vi er meget usikre på denne funktion, og at vi potentielt må fortælle K. Translation, at dette ligger uden for vores formåen. I så fald må Souzane selv lægge sine egne aftaler ind i kalenderen. \\
 
 \section{Use-cases}
-I dette afsnit vil vi beskrive og analysere de vigtigste funktionelle
-egenskaber ved systemet. Udgangspunktet er kravindsamlingen, som her udvikles
-til en high-level use case model, hvori vi efterfølgende identificerer de tre
-vigtigste use cases. Vi har samlet alle use cases og præsenterer dem i det
-medfølgende højniveau-diagram. Se figur \ref{fig:use}.
+I dette afsnit vil vi beskrive systemets 4 vigtigste use cases. Udgangspunktet er anvendelsesområdet, hvor vi tager de forskellige aktører og simulerer et typisk handlingsforløb.  Resultatet skulle gerne være en øget brugerforståelse og en overordnet forståelse af systemfunktionaliteten. Dette arbejde kulminerer i næste afsnit med selve kravspecifikationen. \\
+Vi begynder med at præsentere et højniveau-diagram over samtlige use cases, se figur \ref{fig:use}, og efterfølgende vil vi identificere de fire vigtigste use cases. 
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=12cm, height=12cm]{highlevel.pdf}
-\caption{Højniveau-diagram bestående af samtlige identificerede use cases.}
+\caption{Højniveau use case diagram bestående af samtlige identificerede use cases.}
 \label{fig:use}
 \end{center}
 \end{figure}
 
-De enkelte use cases er udviklede fra de funktionelle krav, og konteksten er
-problemområdet, der vækkes til live i use case handlingsforløbene. 
-Aktørerne i højniveau-diagrammet er alle hentede fra anvendelseområdet.
-Indehaveren af KT er i dette scenario også systemadministrator, idet hun selv vil
-skulle udfylde denne rolle på længere sigt, og derfor er denne aktør ikke
-medtaget som en selvstændig klasse. Vi mener heller ikke, at det vil tilføje
-modellen mere værdi også at modellere systemadministratoren, da vedkommendes
-use cases i så fald vil være et subsæt af indehaverens.\\
-Hvis to use cases indeholder det samme begrænsede handlingsforløb, har vi modelleret
-dette med et ``include'' forhold. F.eks. kan en potientel kunde søge i kalenderen,
-både når vedkommende opretter en aftale og når vedkommende aflyser en aftale. Dette
-er med til at nedsætte kompleksiteteten i use case modellen og fjerne
-redundans. Det samme gør sig gældende med ``extend'' forholdene, der
-modellerer undtagelser og fejltilstande som f.eks. systemets reaktion på
-ulovlige datoer eller mislykket login.\\
-Vi har valgt de fire vigtigste use cases ud og præsenterer dem her med 
-sekvensdiagrammer. Første use case ``Opret kunde'' kan ses i tabel 3.\\
+ 
+Aktørerne i højniveau use case diagrammet er alle hentede fra anvendelseområdet. Indehaveren af KT er i dette scenario også systemadministrator, idet hun selv vil
+skulle udfylde denne rolle på længere sigt, og derfor er denne aktør ikke medtaget som en selvstændig klasse. Vi mener heller ikke, at det vil tilføje modellen mere værdi også at modellere systemadministratoren, da vedkommendes use cases i så fald vil være et subsæt af indehaverens.\\
+Hvis to use cases indeholder det samme begrænsede handlingsforløb, har vi modelleret dette med et ``include'' forhold. F.eks. kan en potientel kunde søge i kalenderen,
+både når vedkommende opretter en aftale, og når vedkommende aflyser en aftale. Dette er med til at nedsætte kompleksiteteten i use case modellen og fjerne redundans. Det samme gør sig gældende med ``extend'' forholdene, der modellerer undtagelser og fejltilstande som f.eks. systemets reaktion på ulovlige datoer eller mislykket login.\\
+Vi har valgt de fire vigtigste use cases ud og præsenterer dem her med sekvensdiagrammer. Første use case ``Opret kunde'' kan ses i tabel 1.\\
 
 \begin{tabular}{l p{10cm}}
 Use case navn & Opret kunde \\ \hline
-Deltagere & \nextitem Initieret af KT's indehaver
-            \nextitem Kommunikerer med kunde \\ \hline
+Deltagere & \nextitem Initieret af KT's indehaver -
+             Kommunikerer med kunde \\ \hline
 Handlingsforløb &
 	\nextitem Indehaveren af KT logger på systemet som administrator. 
 	\nextitem Administratorinterfacet viser menuen.
@@ -377,32 +140,16 @@ Exit betingelse &
 		\nextitem KT's indehaver er logget af systemet.\\ \hline
 \end{tabular}
 \begin{center}
-\textbf{Tabel 3} Opret kunde use case.
+\textbf{Tabel 1} Opret kunde use case.
 \end{center}
 \vspace{0.5cm}
 
-Denne use case beskriver, hvordan K. Translations indehaver opretter en ny
-kunde i kundedatabasen. I vores gennemgang vil vi fokusere på at identificere
-``entity'', ``boundary'' og ``control'' objekterne i use casen. Dette kan 
-ses som en forløber for vores valg af ``Model-View-Controller'' 
-arkitekturen og Django frameworket, som det fremgår af afsnittet omhandlende 
-softwarearkitektur, eftersom ``Model'' kan kortlægges til ``entity'', ``view''
-til ``boundary'' og ``controller'' til ``control''. I det efterfølgende vil vi dog 
-bruge de danske betegnelser, som er henholdsvis entitet, grænseflade og kontrol. \\
-De to aktører i use casen er KT's indehaver og en kunde. Indehaveren
-igangsætter use casen og er den aktive part, mens kunden kun medvirker
-passivt. Grænsefladeobjekterne i use casen er administratorinterfacet, hvor indehaveren
-logger på systemet, og formularen, hvor hun indtaster kundens stamdata. Den
-bekræftende email er også en del af grænsefladen, selvom den ikke går til 
-indehaveren men til kunden. Kundekartoteket er den ene entitet i use casen og
-kunde den anden. Her tænker vi ikke på kunden som aktør men som en entitet,
-der oprettes undervejs udfra de indtastede stamdata. Det er umiddelbart
-lettere at identificere kontrollen i det medfølgende sekvensdiagram, så vi
-henviser til figur \ref{fig:opret}. Her fremgår det, at systemet har en
-administratorkontrol, der er ansvarlig for at oprette entiteten: Kunde og
-grænsefladerne: Email samt Aftaleformular. Dette er måske snarere en for tidlig
-truffet design beslutning, som ikke fremgår af use casen, men krontrol objekter
-skabes ofte af grænseflader, der kan tilgås af aktøren for at igangsætte 
+Denne use case beskriver, hvordan K. Translations indehaver opretter en ny kunde i kundedatabasen. I vores gennemgang vil vi fokusere på at identificere ``entity'', ``boundary'' og ``control'' objekterne i use casen, men vi vil dog i det efterfølgende bruge de danske betegnelser, som er henholdsvis entitet, grænseflade og kontrol. \\
+De to aktører i use casen er KT's indehaver og en kunde. Indehaveren igangsætter use casen og er den aktive part, mens kunden kun medvirker passivt. Grænsefladeobjekterne i use casen er administratorinterfacet, hvor indehaveren
+logger på systemet, og formularen, hvor hun indtaster kundens stamdata. Den bekræftende email er også en del af grænsefladen, selvom den ikke går til 
+indehaveren men til kunden. Kundekartoteket er den ene entitet i use casen og kunde den anden. Her tænker vi ikke på kunden som aktør men som en entitet, der oprettes undervejs udfra de indtastede stamdata. Det er umiddelbart
+lettere at identificere kontrollen i det medfølgende sekvensdiagram, så vi henviser til figur \ref{fig:opret}. Her fremgår det, at systemet har en administratorkontrol, der er ansvarlig for at oprette entiteten: Kunde og
+grænsefladerne: Email samt Aftaleformular. Dette er måske snarere en for tidlig truffet design beslutning, men vi medtager den her, fordi krontrol objekter ofte udspringer af grænseflader, der tilgås af aktøren for at igangsætte 
 handlingsforløbet.    
 
 \begin{figure}[!ht]
@@ -411,7 +158,7 @@ handlingsforløbet.
 \label{fig:opret}
 \end{figure}
 
-Den anden use case, vi har valgt, hedder ``Opret aftale''. Se tabel 4.  Her 
+Den anden use case, vi har valgt, hedder ``Opret aftale''. Se tabel 2.  Her 
 logger en kunde på systemet for at booke en aftale med tolkeservicen, og
 vedkommende skal både oplyse dato, klokkeslet og opgavetype. Igen er der to
 aktører: kunden og KT's ejer. Men rollerne er byttede om i forhold til den
@@ -422,7 +169,7 @@ idet hun kun deltager i use casen for at modtage en email.\\
 \begin{tabular}{l p{10cm}}
 Use case navn & Opret aftale \\ \hline
 Deltagere & \nextitem Initieret af KT's kunde
-            \nextitem Kommunikerer med Indehaveren af KT\\ \hline
+            - kommunikerer med Indehaveren af KT\\ \hline
 Handlingsforløb &
 	\nextitem KT's kunde navigerer til KT's hjemmeside, hvor kunden logger
 	på med det personlige password.
@@ -461,7 +208,7 @@ Exit betingelse &
 		fremtiden.\\ \hline
 \end{tabular}
 \begin{center}
-\textbf{Tabel 4} ``Opret aftale'' use case.
+\textbf{Tabel 2} ``Opret aftale'' use case.
 \end{center}
 \vspace{0.5cm}
 
@@ -482,15 +229,12 @@ grænsefladeobjekter mere samt endnu en entitet.
 \label{fig:aft}
 \end{figure}
 
-Efter at have vist to almindelige use cases, har vi til sidst valgt, 
-at fokusere på de extraordinære forhold, der gør sig gældende ved ``extend''
-use cases. Derfor viser vi to små use cases: ``Optaget'' og ``Ulovlig
-dato'', men vi gennemgår kun selve undtagelserne, eftersom konteksten for
+Efter at have vist to almindelige use cases, har vi til sidst valgt, at fokusere på de extraordinære forhold, der gør sig gældende ved ``extend'' use cases. Derfor viser vi to små use cases: ``Optaget'' og ``Ulovlig dato'', men vi gennemgår kun selve undtagelserne, eftersom konteksten for
 disse use cases er ``Opret aftale'' use casen fra tabel
-1 og figur \ref{fig:aft}. Handlingsforløbene før og efter undtagelserne træder i
-kraft vil være præcise gentagelser af ``Opret aftale'' use casen; man skal
+2 og sekvensdiagrammet i figur \ref{fig:aft}. Handlingsforløbene før og efter, undtagelserne træder i
+kraft, vil være præcise gentagelser af ``Opret aftale'' use casen; man skal
 altså forestille sig denne use case på et givent tidspunkt i forløbet
-blive udvidet med en af de følgende to use cases. Se tabel 5 og 6.\\ 
+blive udvidet med en af de følgende to use cases. Se tabel 3 og 4.\\ 
 
 
 
@@ -513,11 +257,11 @@ Handlingsforløb &
 		kalenderen på et tidspunkt, hvor der i forvejen eksisterer en
 		aftale. 
 		\\ \hline
-Exit betingelse & \dots
+Exit betingelse & Kunden har oprettet en gyldig aftale i kalenderen.
 	\\ \hline
 \end{tabular}
 \begin{center}
-\textbf{Tabel 5} ``Extend'' use case: ``Optaget''.       
+\textbf{Tabel 3} ``Extend'' use case: ``Optaget''.       
 \end{center}
 \vspace{0.5cm}
 
@@ -546,11 +290,11 @@ Handlingsforløb &
 		validere tidspunktet for kundens aftale, fordi kunden har
 		indtastet et ikke eksisterende tidspunkt.  
 		\\ \hline
-Exit betingelse & \dots
+Exit betingelse & Der ligger en gyldig aftale i kalenderen på en lovlig dato.
 	\\ \hline
 \end{tabular}
 \begin{center}
-\textbf{Tabel 6} ``Extend'' use case: ``Ulovlig dato''.       
+\textbf{Tabel 4} ``Extend'' use case: ``Ulovlig dato''.       
 \end{center}
 \vspace{0.5cm}
 
@@ -567,19 +311,120 @@ undtagelser, som det også fremgår af de medfølgende sekvensdiagrammer. Se fig
 \end{center}
 \end{figure}
 
-Vores arbejde med disse use cases og sekvensdiagrammer har betydet, at vi har
-været tvunget til at se systemet fra brugerens synsvinkel, og at vi har
-overvejet flere desingrelaterede problemstillinger. F.eks har identifikationen 
+Vores arbejde med disse use cases og sekvensdiagrammer har betydet, at vi har oplevet systemet fra brugerens synsvinkel, og at vi således har lagt fundamentet for kravspecifikationen. Derudover har vi med ``extend'' use cases set, hvorhenne i systemet undtagelser og exceptionel opførsel kan blive et problem, der skal håndteres. Vi har valgt at identificere grænseflade-, kontrol- og entitetobjekter allerede på nuværende tidspunkt, så dette arbejde bl.a. kan ligge til grund for et senere afsnit om softwarearkitektur og designmønster. 
+
+
+\section{Projektaftale}
+Før vi fortsætter med modelleringen af problemområdet, vil vi beskrive præcist, hvilke krav og forventninger kunden K. Translation har til vores endelige løsning. Vi har delt den følgende kravspecifikation op i to dele: funktionelle krav, som dækker samspillet mellem anvendelsesområdet og
+kalender- samt bookingsystemet uden implementeringsspecifikke detaljer. Og non-funktionelle krav, der dækker over ikke direkte funktionelle aspekter som bl.a. brugervenlighed og pålidelighed. Idet kravspecifikationen senere ligger
+til grund for afprøvningen af systemet, er det vigtigt, at den er ``komplet, konsistent, entydig og korrekt.''\cite{oose}[p.~122] \\
+
+\subsection{Funktionelle krav}
+På det første kundemøde beskrev indehaveren af K. Translation, hvilke forventninger og ønsker hun havde til det færdige produkt: et integreret kalender- og bookingsystem. Vores arbejde med anvendelsesområdet og use cases betyder, at vi nu kan opstille de funktionelle krav, der udgører rammerne, indenfor hvilke vi udvikler systemet. De funktionelle krav kan ses i den følgende liste.\\
+
+\rule{120mm}{1mm}
+\begin{itemize}
+\item K. Translation ønsker en it-løsning, som af bureauets kunder kan tilgås over internettet via en hjemmeside.
+\item På hjemmesiden skal KT's kunder præsenteres for en login menu, hvor de logger på systemet med et brugernavn og et password.
+\item It-løsningen skal indeholde en kalender med ledige og optagede tidspunkter.
+\item Der skal være et tilhørende bookingsystem, så kunderne kan lave en aftale med KT.  
+\item Det skal være muligt for kunderne at søge i kalenderen efter ledige tidspunkter. Søgekriterierne er dato og klokkeslet. 
+\item KT's kunde skal vælge typen på arbejdet inden for et antal forudbestemte kategorier.
+\item Der skal sendes en bekræftende email tilbage til kunden, efter at vedkommende har booket en tid i kalenderen. 
+\item KT modtager ligeledes en email med dato, klokkeslet, kunde og opgavetype.
+\item Det skal være mulig for kunderne at aflyse en aftale.
+\item Det skal være muligt for K. Translation løbende at tilføje flere kunder eller samarbejdspartnere til databasen. 
+\item KT's indehaver vil gerne kunne overføre sine private aftaler fra en ekstern kalender til vores kalendersystem. Hun forestiller sig en form for synkronisering, men vi har fra start gjort hende det klart, at dette måske for os er en for kompliceret opgave. 
+\end{itemize}
+\rule{120mm}{1mm}
+\vspace{0.5cm}
+
+Vi har i samarbejde med Souzane udviklet den ovenstående liste af funktionelle krav, da KT fra start havde et godt billede af, hvilke funktioner og egenskaber det færdige produkt skulle indeholde. Vi synes, at de funktionelle krav på en god og dækkende måde beskriver de ønsker, som K. Translation har til det færdige program. Det skulle være muligt at teste, om vores løsning lever op til alle ovenstående krav, når systemet senere skal valideres på baggrund af kravspecifikationen.  \\ 
+
+
+\subsection{Non-funktionelle krav}
+Indehaveren af K. Translation kom også med nogle forventninger og ønsker, som ikke umiddelbart hører under systemets funktionelle egenskaber. Det er bl.a. forventninger om brugervenlighed, pålidelighed og andre svært verificerbare
+egenskaber. Disse ønsker har vi samlet her i afsnittet med de non-funktionelle krav sammen med mere  implementeringsspecifikke detaljer. Den følgende liste
+indeholder de non-funktionelle krav til systemet.\\
+
+\rule{120mm}{1mm}
+\begin{itemize}
+\item Hjemmesiden skal indeholde K. Translations kontaktinformationer.
+\item Designet skal være enkelt	og intuitivt, så personer uden store it-forudsætninger kan navigere på siden og booke en tid.
+\item Souzane ønsker et design med lyse pastelfarver iblandet sort. 
+\item Alle brugere skal kunne tilgå systemet med en almindelig web browser som Internet Explorer, Firefox eller Google Chrome.
+\item KT ønsker et system af farvekoder, så kunderne hurtigt og nemt i kalenderen kan skelne de forskellige aftale- samt opgavetyper fra hinanden.
+\item K. Translation ønsker den letteste og billigste implementering og hosting af systemet.
+\item Indehaveren vil have et system, der ikke kræver løbende
+	vedligeholdelse, men som bare ``kører og passer sig selv''.   
+\item Der ønskes præcis og let forståelig dokumentation af systemet. 
+\item Kalendersystemet og backend databasen må ikke tabe data eller aftaler, da dette betyder tabt indkomst for KT.
+\end{itemize}
+\rule{120mm}{1mm}
+\vspace{0.5cm}
+
+Som det fremgår, vil flere af de nonfunktionelle krav være svært verificerbare. Det er meget svært at fastslå med nogen som helst sikkerhed, hvornår en bruger opfatter en hjemmeside som enkel, intuitiv eller let at overskue. Man kan stille
+parametre op, fastsætte gennemgående regler for designet og bruge afprøvede metoder, men der kan alligevel ikke gives nogen garantier. Derfor vil vi også i en senere rapport bruge tænke-højt-forsøg for at få en ide om, hvor godt
+eller dårligt vores design er i forhold til disse egenskaber. \\
+ Andre af de non-funktionelle krav udspringer af manglen på it-kompetancer internt i bureauet og af fraværet af en systemadministrator. Dette betyder højest sandsynligt, at vi 
+placerer det færdige system hos en udbyder af serverplads, da KT i så fald kommer til at stå for et minimum af systemvedligehold. Det vil også være den billigste
+løsning, da anskaffelsen af en server, strøm og evt. køling vil resultere i en betragtelig merudgift. \\
+Da belastningen af systemet ikke forventes at blive særlig høj, har KT. ingen performancemæssige krav til vores løsning. Der er ingen tidskritiske brugerfunktioner, og risikoen for samtidig brug af kalenderen må forventes at være minimal. Man kunne godt forestille sig to kunder, der vil booke den samme 
+tid i kalenderen med race condition til følge, men backend
+databasens transactionindstillinger burde kunne håndtere dette
+tilfredsstillende. Pålidelighed er på den anden side et vigtigt punkt, da K. Translation ikke kan acceptere, at aftaler tabes eller forsvinder. \\ 
+
+
+\section{Problemområde}
+Vi har nu gennemgået anvendelsesområdet, identificeret de vigtigste use cases og skrevet en kravspecifikation. Derfor kan vi nu på baggrund af dette arbejde gå igang med at modellere problemområdet. Vi præsenterer for overskuelighedens skyld først et UML-diagram over området. Se figur \ref{fig:problem}. Dernæst kommer der en kort opsummerende liste med klasserne efterfulgt af et længere forklarende afsnit.  
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=12cm, height=12cm]{problemomr.pdf}
+\caption{UML-diagram over problemområdet}
+\label{fig:problem}
+\end{center}
+\end{figure}
+
+Her følger en liste af de klasser, vi har identificeret i problemområdet:
+
+\begin{itemize}
+\item Bruger: Kunde, administrator, indehaver. Går igen fra
+	anvendelsesområdet.
+\item Et kundekartotek, hvor KT's indehaver løbende kan tilføje kunder.
+\item Kalenderen, som kunderne kan bruge, når de skal finde en ledig tid, og som KT's indehaver kan bruge i sit daglige, travle arbejde.
+\item Aftale. Kunderne booker en aftale i kalenderen.
+\item Da KT har både mundtlige, skriftlige og andre opgaver, skal kunden	oplyse typen på arbejdet.
+\item Når kunden har booket en aftale, sendes der en bekræftende email tilbage til kunden med det aftalte tidpunkt.
+\item KT's indehaver får ligeledes en email med dato, klokkeslet og opgavetype.  
+\item KT's indehaver har et ønske om at kunne synkronisere hendes eksterne, private kalender med vores it-løsning.
+\end{itemize}
+
+Det første, vi har modelleret, er brugerne fra anvendelsesområdet, idet disse skal have adgang til klasserne i problemområdet. Souzane skal kunne oprette nye kunder i kundekartoteket, og eksisterende kunder står opførte i dette kartotek. Derfor har vi modelleret en kartotekklasse imellem Souzanne og klassen Kunde. Endvidere skal Souzane kunne tilgå kalenderen for at tjekke aftalerne og evt. selv lægge nye private eller indtelefonerede aftaler ind. \\
+Klassen Kunde vil efter login have adgang til klassen Kalender, hvor de har mulighed for at søge efter ledige tidspunkter til en aftale. Dette fører modelleringen videre til Aftaleklassen, og eftersom der vil være en naturlig sammenhæng mellem kalender og aftale, er de sammenkoblet ved aggregering. Da en aftale både kan være aflyst og opfyldt, vil klassen Aftale indeholde en attribut, der markerer denne forskel. Når kunden har booket en aftale vil vedkommende automatisk modtage en bekræftende email med dato og tidspunkt. Dette ses til højre i UML-diagrammet, hvor emailen autogenereres og sendes tilbage til kunden. Souzane vil ligeledes modtage en påmindende email, hvilket ses til venstre i diagrammet. \\
+Det sidste, vi vil berøre i problemområdet, er det usikre punkt om samspillet mellem en ekstern kalender og vores eget kodede kalendersystem. Vi har modelleret en Ekstern Kalenderklasse til Souzanes egen private iCloud kalender, som hun gerne vil synkronisere med vores it-løsning for at overføre hendes private aftaler, så alt er samlet i èn
+kalender. Men da denne opgave måske er for kompliceret for os, har vi forklaret Souzane, at private aftaler måske skal indtastes manuelt i kalenderen. \\
+Hermed slutter vi gennemgangen af problemområdet. Den ovenstående modellering vil ligge til grund for det videre design og endelige system. 
+
+\section{Softwarearkitektur}
+
+Dette kan 
+ses som en forløber for vores valg af ``Model-View-Controller'' 
+arkitekturen og Django frameworket, som det fremgår af afsnittet omhandlende 
+softwarearkitektur, eftersom ``Model'' kan kortlægges til ``entity'', ``view''
+til ``boundary'' og ``controller'' til ``control''.
+
+
+F.eks har identifikationen 
 af entitet-, grænseflade- og kontrolobjekterne betydet, at vi har lagt os fast
 på en systemarkitektur, ``Model-View-Controller'', samt et framework i det
 MVC-baserede Django. Det vil yderligere hjælpe os, når vi i netop Django skal
 til at definere vores modeller, templates og viewfunktioner, at vi har bestemt
 og afgrænset objekternes opførsel, så de hurtigt kan sættes ind i en MVC
-kontekst. Derudover har vi med ``extend'' use cases set, hvorhenne i systemet
-undtagelser og exceptionel opførsel kan blive et problem, der skal håndteres. 
+kontekst.
 
 
-\section{Softwarearkitektur}
+
 Det kan være en stor udfordring, at finde den rigtige softwarearkitektur i et
 systemudviklingsprojekt. Vi har selv overvejet flere forskellige arkitekturer 
 og vil i dette afsnit argumentere for vores valg og fravalg. Først overvejede
