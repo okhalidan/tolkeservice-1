@@ -408,92 +408,51 @@ Hermed slutter vi gennemgangen af problemområdet. Den ovenstående modellering 
 
 \section{Softwarearkitektur}
 
-Dette kan 
-ses som en forløber for vores valg af ``Model-View-Controller'' 
-arkitekturen og Django frameworket, som det fremgår af afsnittet omhandlende 
-softwarearkitektur, eftersom ``Model'' kan kortlægges til ``entity'', ``view''
-til ``boundary'' og ``controller'' til ``control''.
-
-
-F.eks har identifikationen 
-af entitet-, grænseflade- og kontrolobjekterne betydet, at vi har lagt os fast
-på en systemarkitektur, ``Model-View-Controller'', samt et framework i det
-MVC-baserede Django. Det vil yderligere hjælpe os, når vi i netop Django skal
-til at definere vores modeller, templates og viewfunktioner, at vi har bestemt
-og afgrænset objekternes opførsel, så de hurtigt kan sættes ind i en MVC
-kontekst.
-
-
-
-Det kan være en stor udfordring, at finde den rigtige softwarearkitektur i et
-systemudviklingsprojekt. Vi har selv overvejet flere forskellige arkitekturer 
-og vil i dette afsnit argumentere for vores valg og fravalg. Først overvejede
-vi en multilagdelt arkitektur i form af 3-tier arkitekturen. Her kunne vi i
-datalaget gemme de oprettede brugere og bookede aftaler i en database.
-Forretningslogikken kunne placeres i mellemlaget og kodes med PHP.
-Brugerinterfacet ville ligge i præsentationslaget og tilgås gennem brugerens
-browser. Vi fravalgte dog denne løsning af flere grunde. Vi fandt det ikke
-strengt nødvendigt med tre lag, da det tredie lag ikke ville betyde
-nævneværdige forbedringer i forhold til en almindelig client-server model.
-Derudover kunne vi også uforvarent komme til at introducere flere
-sikkerhedsbrister, hvis vi havde kodet mellemlaget i PHP, da dette kræver, at 
-man er ekstrem opmærksom på validering af brugerinput. Én maliciøs SQL-injection
-kan slette en hel database og alle aftaler, hvilket ville være katastrofalt for
-KT. Da vores kalendersystem ikke kræver andet for at fungere end en bruger med
-en browser, der kan logge på KT's server, besluttede vi derfor, at holde 
-arkitekturen så overskuelig som mulig ved at bruge client-server modellen. \\
-Dernæst valgte vi det Model-View-Controller (MVC) baserede web framework Django til
-at understøtte client-server arkitekturen. Se figur \ref{fig:mvc}.\\
+Vi vil nu prøve at samle trådene fra de forrige afsnit og lægge os fast på en softwarearkitektur. Vi har overvejet flere forskellige arkitekturer og vil argumentere for vores valg og fravalg. Først overvejede vi en multilagdelt arkitektur i form af 3-tier arkitekturen. Her kunne vi i
+datalaget gemme de oprettede brugere og bookede aftaler i en database. Forretningslogikken kunne placeres i mellemlaget og kodes med PHP. Brugerinterfacet ville ligge i præsentationslaget og tilgås gennem brugerens
+browser. Vi fravalgte dog denne løsning af flere grunde. Vi fandt det ikke strengt nødvendigt med tre lag, da det tredie lag ikke ville betyde nævneværdige forbedringer i forhold til en almindelig client-server model. Derudover kunne vi også uforvarent komme til at introducere flere sikkerhedsbrister, hvis vi havde kodet mellemlaget i PHP, da dette kræver, at 
+man er ekstrem opmærksom på validering af brugerinput. Da vores kalendersystem ikke kræver andet for at fungere end en bruger med en browser, der kan logge på KT's server, besluttede vi derfor, at holde arkitekturen så overskuelig som mulig ved at bruge client-server modellen. \\
+Dernæst valgte vi at implementere systemet med det Model-View-Controller (MVC) baserede webframework Django. Se figur \ref{fig:mvc}.\\
 
 \begin{figure}[!ht]
 	\centering
-\includegraphics[width=10.5cm, height=9.5cm]{mvc.pdf}
+\includegraphics[width=6.5cm, height=5.5cm]{mvc.pdf}
 \caption{Model-View-Controller arkitektur superimposeret på client-server.}
 \label{fig:mvc}
 \end{figure}
 
 Django kommer med et enkelt og praktisk administratorinterface, der kan blive
-særdeles nyttigt for os under systemudviklingen og for indehaveren af KT på
-længere sigt. Desuden får vi mulighed for at benytte Django's mange indbyggede 
-applikationer. Vi kommer til at bruge moduler, der understøtter implementering af
-html formularer, og som også er i stand til at validere brugerinput i disse,
-og moduler for brugeroprettelse og autentifikation. Det betyder for os, at der er
-færre muligheder for at introducere fejl og sikkerhedsmangler til
-systemet. En af Djangos helt store styrker, som udspringer af MVC arkitekturen,
-er den løse kobling og strenge adskillelse mellem de forskellige dele af modellen.
-Det betyder, at vi let kan ændre, slette eller tilføje i eksisterende dele uden at
-bekymre os om afhængigheder mellem delene. \\
-Fordi views i Django terminologi består af templates, og controllers består af
-viewfunktioner, er det måske mere rigtigt at kalde Django for en Model-View-Templates
-(MTV) arkitektur, men vi bibeholder den normale konvention og skriver MVC. Vores
-model kommer til at bestå af de aftaler, som KT's kunder booker ind i kalenderen.
-D.v.s at domænerne i den bagvedliggende database, som modellen kortlægges til og 
-fra, udgøres af datoen og klokkeslettet for aftalen, opgavetypen samt navnet
-på kunden. Django's templates står som sagt for præsentationen, og vi
-påtænker at bruge en basisskabelon til hjemmesiden, der kan udvides med
-tilpassede templates, når logikken kræver det. Selve forretningslogikken bliver 
-implementeret i Django's viewfunktioner. (Controller i MVC). Det er bindeleddet
-mellem modellen og præsentationen, og det er her kernefunktionaliteten kommer til at 
-sidde. Eftersom Django i virkeligheden er en samling Python biblioteker, vil vi kode 
-systemet i programmeringssproget Python. Det er også et godt valg, fordi det ene
-medlem i vores tomandsgruppe har erfaring med Python, og det andet medlem ikke har.
-Python kan læres relativt hurtigt, så det ene medlem får muligheden for at
-lære det undervejs i projektet, mens det andet medlem kan lære det fra sig
-evt. gennem pair-programming. \\ 
+særdeles nyttigt for os under systemudviklingen og for indehaveren af KT på længere sigt. Desuden får vi mulighed for at benytte Django's mange indbyggede applikationer. Vi kommer til at bruge moduler, der understøtter implementering af html formularer, og som også er i stand til at validere brugerinput i disse, og moduler for brugeroprettelse og autentifikation. Det betyder for os, at der er
+færre muligheder for at introducere fejl og sikkerhedsmangler til systemet. En af Djangos helt store styrker, som udspringer af MVC arkitekturen, er den løse kobling og strenge adskillelse mellem de forskellige dele af modellen. Det betyder, at vi let kan ændre, slette eller tilføje i eksisterende dele uden at bekymre os om afhængigheder mellem delene. \\
+Valget af Django skal også ses i forhold til vores arbejde med use cases og sekvensdiagrammer. Vi fokuserede på at identificere entiteterne(entity), grænsefladerne(boundary) samt kontrollerne(control), og disse objekter kan nu kortlægges til Model, View og Controller. Derfor har vi allerede nu afgrænset objekternes opførsel, og vi kan hurtigt sætte dem ind i en MVC kontekst. \\
+Eftersom views i Django terminologi består af templates, og controllers består af viewfunktioner, er det måske mere rigtigt at kalde Django for en Model-View-Templates
+(MTV) arkitektur, men vi bibeholder den normale konvention og skriver MVC. Vores model kommer til at bestå af de aftaler, som KT's kunder booker ind i kalenderen. D.v.s at domænerne i den bagvedliggende database, som modellen kortlægges til og 
+fra, udgøres af datoen og klokkeslettet for aftalen, opgavetypen samt navnet på kunden. Django's templates står som sagt for præsentationen, og vi påtænker at bruge en basisskabelon til hjemmesiden, der kan udvides med
+tilpassede templates, når logikken kræver det. Selve forretningslogikken bliver implementeret i Django's viewfunktioner. (Controller i MVC). Det er bindeleddet
+mellem modellen og præsentationen, og det er her kernefunktionaliteten kommer til at sidde. Eftersom Django i virkeligheden er en samling Python biblioteker, vil vi kode 
+systemet i programmeringssproget Python. Det er også et godt valg, fordi det ene medlem i vores tomandsgruppe har erfaring med Python, og det andet medlem ikke har. Python kan læres relativt hurtigt, så det ene medlem får muligheden for at
+lære det undervejs i projektet, mens det andet medlem kan lære det fra sig evt. gennem pair-programming. \\ 
+
+\section{Brugergrænseflade}
+Vi er nu nået så langt i projektudviklingen, at vi kan begynde at arbejde med designet og brugergrænsefladen. Vi præsenterer her den første prototype af systemet ved hjælp af mock-ups og screen-shots af det påtænkte design. Derudover tegner vi de vigtigste flow-charts, så vi kan få et overblik over dynamikken i systemet. Vi vil få en person, der ikke er tilknyttet projektet, til at gennemgå vores prototype mock-up. Det mest ideelle ville dog have været, at få en virkelig bruger af det endelige kalendersystem, til at evaluere prototypen, men det har ikke været muligt på nuværende tidspunkt. Vi er dog af Souzane blevet stillet i udsigt, at vi sagtens kan få flere endelige brugere af kalenderen til at teste den færdige version, når dette engang bliver aktuelt, og det er selvfølgelig en unik mulighed, vi har tænkt at benytte os af. \\
+Det første flow-chart viser dynamikken i systemet fra en bruger logger på til vedkommende logger af. Se figur \ref{fig:flow1}.\\
+
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=9cm, height=9cm]{flow1.pdf}
+\caption{Flow-chart}
+\label{fig:flow1}
+\end{center}
+\end{figure}
+
+
 
 
 \section{Projektplan}
-Adskillige forelæsninger i Systemudviklingskurset har handlet om agil
-projektledelse og systemudvikling. Vi har fundet en sådan iterativ og
-inkremental tilgang til projektet spændende og kunne derfor godt tænke os at
-systemudvikle inden for rammerne af de agile principper, som vi bl.a. har
+Adskillige forelæsninger i Systemudviklingskurset har handlet om agil projektledelse og systemudvikling. Vi har fundet en sådan iterativ og inkremental tilgang til projektet spændende og kunne derfor godt tænke os at systemudvikle inden for rammerne af de agile principper, som vi bl.a. har 
 stiftet bekendsskab med i artiklen ``Jeff Sutherland's Scrum
-Handbook''\cite{scrum}. Det vil dog ikke være muligt, at gennemføre projektet
-i komplet overensstemmelse med Scrum og alle de agile regler. For det første
-vil det betyde, at vores kunde skal afse betydelig mere tid til projektet,
-end hun umiddelbart har planlagt, hvis hun løbende skal opdate ``Product
-Backlog'' og deltage i prioriteringsmøder ved hver sprints begyndelse.
-Derudover vil det ikke være realistisk, at vi selv holder daglige Scrum møder,
+Handbook''\cite{scrum}. Det vil dog ikke være muligt, at gennemføre projektet i komplet overensstemmelse med Scrum og alle de agile regler. For det første vil det betyde, at vores kunde skal afse betydelig mere tid til projektet, end hun umiddelbart har planlagt, hvis hun løbende skal opdate ``Product Backlog'' og deltage i prioriteringsmøder ved hver sprints begyndelse. Derudover vil det ikke være realistisk, at vi selv holder daglige Scrum møder,
 og at vi kan levere al den dokumentation et virkeligt Scrum forløb
 forudsætter som f.eks. de daglige overslag over vores egne fremskridt i forhold
 til opgaverne i den aktuelle sprint. Derfor vil vi slække på nogle af 
@@ -523,16 +482,16 @@ Indehaveren af K. Translation har ofte meget travlt og kan som sagt ikke
 deltage i hvert nyt sprintmøde. Derfor har vi besluttet at simulere disse
 møder ved, at vi selv skriver og opdater produkt backloggen og gør det med
 udgangspunkt i kravspecifikationen. Vi bliver herved in effect vores egen 
-proxykunde ! Den indledende produkt backlog kan ses i tabel 1.
+proxykunde. Den indledende produkt backlog kan ses i tabel 1.
 
 \begin{center}
 	\begin{tabular}{|p{8cm}|l|l|l|}
 		\hline
-Punkt & Prioritet & Værdi & Indsats \\ \hline
+Punkt & Prioritet & Værdi & Timer \\ \hline
 Som bruger af KT's hjemmeside bliver man præsenteret for en kalender, hvori man
 kan booke en aftale med KT. & 1 & Høj &  50 \\ \hline
-Som KT's kunde møder man et login interface, når man navigerer til hjemmesiden. & 2 &
-Høj & 15  \\ \hline
+Som KT's kunde møder skal man have mulighed for at vedhæfte dokumenter, der skal oversættes, til en aftale. & 2 &
+Middel & 6  \\ \hline
 KT skal have muligheden for løbende at tilføje kunder til databasen. & 3 & Høj
 & 15 \\ \hline
 Man skal som kunde modtage en bekræftende email efter at have lavet en aftale
@@ -544,11 +503,9 @@ Som kunde skal man kunne søge i kalenderen ved hjælp af dato eller klokkeslet.
 Indehaveren af KT vil gerne kunne synkronisere sin eksterne kalender med
 hjemmesidens kalender og på den måde overføre sine private aftale. & 7 & Lav &
  35 \\ \hline
-KT ønsker en hjemmeside med kontaktinformation, billeder og et enkelt design.
-& 8 & Middel & 12 \\ \hline
 \end{tabular}
 \end{center}
-\begin{center}\textbf{Tabel 1} Produkt Backlog
+\begin{center}\textbf{Tabel 1} Anden Produkt Backlog
 \end{center}
 \vspace{0.5cm}
 
@@ -568,26 +525,23 @@ efterfølgende sprint.
 \begin{center}
 	\begin{tabular}{|l|p{4cm}|l|l|}
 		\hline
-		Backlog punkt & Sprint opgave & Frivillig & Indsats\\ \hline
-		\multirow{4}{4cm}{Som KT's kunde møder man et login interface,
-		når man navigerer til hjemmesiden.} & Oprette en Django
-		applikation & Omar  & 2 \\
-		& Skriv login interfacet & Morten & 6 \\
-		& Test login interfacet & Omar & 3 \\
-		& Integrer interfacet med resten af hjemmesiden & Morten og Omar
-		& 4 \\ \hline
-		\multirow{3}{4cm}{KT ønsker en hjemmeside med
-		kontaktinformation, billeder og et enkelt design.} &
-		Skrive basisskabelonen til Django & Morten & 5 \\
-		& Udvid basisskabelonen med Djangos ``extend''-skabeloner & Morten & 5
-		\\ & Test hjemmesiden i flere forskellige browsere & Omar & 2 \\
+		Backlog punkt & Sprint opgave & Frivillig & Timer\\ \hline
+		\multirow{4}{4cm}{Som bruger af KT's hjemmeside bliver man præsenteret for en kalender, hvori man
+		kan booke en aftale med KT.} & Oprette en månedskalender & Omar  & 10 \\
+		& Oprette dags dato i kalenderen & Morten & 10 \\
+		& Lave templates og CSS-kode & Omar & 6 \\
+		& Oprette muligheden for at booke en aftale & Morten
+		& 8 \\ 
+		& Integrer kalenderen med dags dato & Omar og Morten & 6 \\
+		& Test af kalender og dags dato & Morten & 5
+		\\ & Integrer kalenderen med login-systemet & Omar & 5 \\
 		\hline
 
 	\end{tabular}
 \end{center}
 
 \begin{center}
-\textbf{Tabel 2} Sprint Backlog
+\textbf{Tabel 2} Anden Sprint Backlog
 \end{center}
 
 \vspace{0.5cm}
@@ -736,6 +690,70 @@ Det eneste man kan gøre er at diskutere til konferencer, siger varulven.
 	IEEE Trans. Eoftw. Eng. 12,
 	1986.
 \end{thebibliography}
+
+
+\section{Bilag}
+
+\begin{center}
+	\begin{tabular}{|p{8cm}|l|l|l|}
+		\hline
+Punkt & Prioritet & Værdi & Timer \\ \hline
+Som bruger af KT's hjemmeside bliver man præsenteret for en kalender, hvori man
+kan booke en aftale med KT. & 1 & Høj &  50 \\ \hline
+Som KT's kunde møder man et login interface, når man navigerer til hjemmesiden. & 2 &
+Høj & 15  \\ \hline
+KT skal have muligheden for løbende at tilføje kunder til databasen. & 3 & Høj
+& 15 \\ \hline
+Man skal som kunde modtage en bekræftende email efter at have lavet en aftale
+i kalenderen. KT skal ligeledes modtage en email med aftalen. & 4 & Middel & 10  \\ \hline
+Som kunde bliver man præsenteret for en lille menu, hvor man skal vælge typen
+på arbejdet. & 5 & Lav & 20\\ \hline
+Som kunde skal man kunne søge i kalenderen ved hjælp af dato eller klokkeslet.
+& 6  & Middel &  25 \\ \hline
+Indehaveren af KT vil gerne kunne synkronisere sin eksterne kalender med
+hjemmesidens kalender og på den måde overføre sine private aftale. & 7 & Lav &
+ 35 \\ \hline
+KT ønsker en hjemmeside med kontaktinformation, billeder og et enkelt design.
+& 8 & Middel & 12 \\ \hline
+\end{tabular}
+\end{center}
+\begin{center}\textbf{Første Produkt Backlog}
+\end{center}
+\vspace{0.5cm}
+
+
+
+\begin{center}
+	\begin{tabular}{|l|p{4cm}|l|l|}
+		\hline
+		Backlog punkt & Sprint opgave & Frivillig & Timer\\ \hline
+		\multirow{4}{4cm}{Som KT's kunde møder man et login interface,
+		når man navigerer til hjemmesiden.} & Oprette en Django
+		applikation & Omar  & 2 \\
+		& Skriv login interfacet & Morten & 6 \\
+		& Test login interfacet & Omar & 3 \\
+		& Integrer interfacet med resten af hjemmesiden & Morten og Omar
+		& 4 \\ \hline
+		\multirow{3}{4cm}{KT ønsker en hjemmeside med
+		kontaktinformation, billeder og et enkelt design.} &
+		Skrive basisskabelonen til Django & Morten & 5 \\
+		& Udvid basisskabelonen med Djangos ``extend''-skabeloner & Morten & 5
+		\\ & Test hjemmesiden i flere forskellige browsere & Omar & 2 \\
+		\hline
+
+	\end{tabular}
+\end{center}
+
+\begin{center}
+\textbf{Første Sprint Backlog}
+\end{center}
+
+\vspace{0.5cm}
+
+
+
+
+
 
 \end{document}
 
