@@ -40,32 +40,17 @@ der undervejs vil forekomme adskillige fagspecifikke termer.
 
 \newpage
 
-\section{Indledning}
+\section{It-projektets formål og rammer}
 
 Tolkeservicen K. Translation (KT) er et lille tolkebureau med speciale i arabiske 
 sprog. Indehaveren af bureauet er Souzane, og hun er både leder og eneste
-medarbejder i bureauet. Hendes kunder er offentlige myndigheder som
-politiet, anklagemyndigheden og diverse ministerier, og private aktører som f.eks. advokatbureauer. Disse instanser kontakter K. Translation, når de har
-behov for en tolk til konkrete sager eller ved andet forefaldende
-tolkearbejde, og der laves en aftale. Det kan både være aftaler to eller tre uger 
-ude i fremtiden, eller det kan ved mere presserende sager være aftaler med
+medarbejder i bureauet. Hendes kunder er offentlige myndigheder såsom politiet, anklagemyndigheden og diverse ministerier, samt private aktører såsom f.eks. advokatbureauer. Disse instanser kontakter K. Translation, når de har behov for en tolk til konkrete sager eller ved andet forefaldende tolkearbejde, og der laves en aftale. Det kan både være aftaler to eller tre uger ude i fremtiden, eller det kan ved mere presserende sager være aftaler med
 kortere frist.\\
 Ejeren af KT har ofte meget travlt både på arbejdet og i privatlivet, og på
-den baggrund opstod ideen om en webbaseret kalender, der både kan dække hendes behov for en struktureret arbejdsdag og hendes kunders behov for hurtigt og nemt at kunne booke en aftale. Vi opsøgte Souzane, fordi vi mente, at denne opgave lå inden for
-rammerne af det mulige i et førsteårsprojekt. Det første møde fandt 
-sted fredag den 21. marts, og vi blev enige om at begynde et samarbejde, der
-skal resultere i et færdigt kalender- og bookingsystem til KT og KT's kunder.
-Kalendersystemet skal tilgås igennem en hjemmeside, hvor KT's kunder
-kan logge på systemet med f.eks. deres EAN-nummer. \\
-Når en af KT's kunder har logget på systemet, skal vedkommende præsenteres for en
-kalender. Kunden skal i kalenderen kunne se alle de tidspunkter,
-hvorpå det er muligt at booke en
-aftale med K. Translation. Når KT's kunde har besluttet sig for en dato og et tidspunkt,
-taster vedkommende dette ind i systemet. Derefter skal kunden oplyse typen på
-arbejdet; om det er mundtligt eller skriftligt tolkearbejde, simultantolkning
-eller andet tolkearbejde. Aftalen gemmes så i databasen og
-vises herefter i kalenderen. KT's ejer har betonet vigtigheden af
-brugervenlighed, sådan at hendes samarbejdspartnere uden foregående undervisning 
+den baggrund opstod ideen om en web-baseret kalender, der både kan dække hendes behov for en struktureret arbejdsdag og hendes kunders behov for hurtigt og nemt at kunne booke en aftale. Vi opsøgte Souzane, fordi vi mente, at denne opgave lå inden for rammerne af det mulige for et førsteårsprojekt. Det første møde fandt sted fredag den 21. marts, og vi blev enige om at begynde et samarbejde, der skal resultere i et færdigt kalender- og bookingsystem til KT og KT's kunder.
+Kalendersystemet skal tilgås igennem en hjemmeside, hvor KT's kunder kan logge på systemet med brugernavn og password. \\
+Når en af KT's kunder har logget på systemet, skal vedkommende præsenteres for en kalender. Kunden skal i kalenderen kunne se alle de tidspunkter, hvorpå det er muligt at booke en aftale med K. Translation. Når KT's kunde har besluttet sig for en dato og et tidspunkt, taster vedkommende dette ind i systemet. Derefter skal kunden oplyse typen på
+arbejdet; om det er mundtligt eller skriftligt tolkearbejde, simultantolkning eller andet tolkearbejde. Aftalen gemmes så i databasen og vises herefter i kalenderen. KT's ejer har betonet vigtigheden af brugervenlighed, sådan at hendes samarbejdspartnere uden foregående undervisning 
 hurtigt selv kan overskue kalenderen og booke en aftale. Slutteligt vil Souzane også have et system, hvor hun løbende kan tilføje nye samarbejdspartnere til den database, der gemmer på alle data. \\
 
 \section{Anvendelsesområde}
@@ -106,7 +91,7 @@ Aktørerne i højniveau use case diagrammet er alle hentede fra anvendelseområd
 skulle udfylde denne rolle på længere sigt, og derfor er denne aktør ikke medtaget som en selvstændig klasse. Vi mener heller ikke, at det vil tilføje modellen mere værdi også at modellere systemadministratoren, da vedkommendes use cases i så fald vil være et subsæt af indehaverens.\\
 Hvis to use cases indeholder det samme begrænsede handlingsforløb, har vi modelleret dette med et ``include'' forhold. F.eks. kan en potientel kunde søge i kalenderen,
 både når vedkommende opretter en aftale, og når vedkommende aflyser en aftale. Dette er med til at nedsætte kompleksiteteten i use case modellen og fjerne redundans. Det samme gør sig gældende med ``extend'' forholdene, der modellerer undtagelser og fejltilstande som f.eks. systemets reaktion på ulovlige datoer eller mislykket login.\\
-Vi har valgt de fire vigtigste use cases ud og præsenterer dem her med sekvensdiagrammer. Første use case ``Opret kunde'' kan ses i tabel 1.\\
+Vi har valgt de 4 vigtigste use cases ud og præsenterer dem her med sekvensdiagrammer. Første use case ``Opret kunde'' kan ses i tabel 1.\\
 
 \begin{tabular}{l p{10cm}}
 Use case navn & Opret kunde \\ \hline
@@ -149,7 +134,7 @@ De to aktører i use casen er KT's indehaver og en kunde. Indehaveren igangsætt
 logger på systemet, og formularen, hvor hun indtaster kundens stamdata. Den bekræftende email er også en del af grænsefladen, selvom den ikke går til 
 indehaveren men til kunden. Kundekartoteket er den ene entitet i use casen og kunde den anden. Her tænker vi ikke på kunden som aktør men som en entitet, der oprettes undervejs udfra de indtastede stamdata. Det er umiddelbart
 lettere at identificere kontrollen i det medfølgende sekvensdiagram, så vi henviser til figur \ref{fig:opret}. Her fremgår det, at systemet har en administratorkontrol, der er ansvarlig for at oprette entiteten: Kunde og
-grænsefladerne: Email samt Aftaleformular. Dette er måske snarere en for tidlig truffet design beslutning, men vi medtager den her, fordi krontrol objekter ofte udspringer af grænseflader, der tilgås af aktøren for at igangsætte 
+grænsefladerne: Email samt Aftaleformular. Dette er måske snarere en for tidlig truffet design beslutning, men vi medtager den her, fordi kontrol objekter ofte udspringer af grænseflader, der tilgås af aktøren for at igangsætte 
 handlingsforløbet.    
 
 \begin{figure}[!ht]
@@ -304,7 +289,7 @@ undtagelser, som det også fremgår af de medfølgende sekvensdiagrammer. Se fig
 \ref{fig:extseq} for begge sekvensdiagrammer. \\
 
 \begin{figure}[!ht]
-	\begin{center}
+\begin{center}
 \includegraphics[width=13cm, height=15cm]{ext.pdf}
 \caption{Sekvensdiagram for ``Optaget'' samt  ``Ulovlig dato''.}
 \label{fig:extseq}
@@ -395,8 +380,8 @@ Her følger en liste af de klasser, vi har identificeret i problemområdet:
 \item Kalenderen, som kunderne kan bruge, når de skal finde en ledig tid, og som KT's indehaver kan bruge i sit daglige, travle arbejde.
 \item Aftale. Kunderne booker en aftale i kalenderen.
 \item Da KT har både mundtlige, skriftlige og andre opgaver, skal kunden	oplyse typen på arbejdet.
-\item Når kunden har booket en aftale, sendes der en bekræftende email tilbage til kunden med det aftalte tidpunkt.
-\item KT's indehaver får ligeledes en email med dato, klokkeslet og opgavetype.  
+\item Kunden får en bekræftende email tilsendt med det aftalte tidspunkt.
+\item KT's indehaver får ligeledes en påmindelse tilsendt pr. email, når der er oprettet en aftale i kalenderen. 
 \item KT's indehaver har et ønske om at kunne synkronisere hendes eksterne, private kalender med vores it-løsning.
 \end{itemize}
 
@@ -434,19 +419,58 @@ systemet i programmeringssproget Python. Det er også et godt valg, fordi det en
 lære det undervejs i projektet, mens det andet medlem kan lære det fra sig evt. gennem pair-programming. \\ 
 
 \section{Brugergrænseflade}
-Vi er nu nået så langt i projektudviklingen, at vi kan begynde at arbejde med designet og brugergrænsefladen. Vi præsenterer her den første prototype af systemet ved hjælp af mock-ups og screen-shots af det påtænkte design. Derudover tegner vi de vigtigste flow-charts, så vi kan få et overblik over dynamikken i systemet. Vi vil få en person, der ikke er tilknyttet projektet, til at gennemgå vores prototype mock-up. Det mest ideelle ville dog have været, at få en virkelig bruger af det endelige kalendersystem, til at evaluere prototypen, men det har ikke været muligt på nuværende tidspunkt. Vi er dog af Souzane blevet stillet i udsigt, at vi sagtens kan få flere endelige brugere af kalenderen til at teste den færdige version, når dette engang bliver aktuelt, og det er selvfølgelig en unik mulighed, vi har tænkt at benytte os af. \\
-Det første flow-chart viser dynamikken i systemet fra en bruger logger på til vedkommende logger af. Se figur \ref{fig:flow1}.\\
-
+Vi er nu nået så langt i projektudviklingen, at vi kan begynde at arbejde med designet og brugergrænsefladen. Vi præsenterer her den første prototype af systemet ved hjælp af mock-ups og screen-shots af det påtænkte design. Derudover tegner vi de vigtigste flowcharts, så vi kan få et overblik over dynamikken i systemet. Vi vil få en person, der ikke er tilknyttet projektet, til at gennemgå vores prototype mock-up. Det mest ideelle ville dog have været, at få en virkelig bruger af det endelige kalendersystem, til at evaluere prototypen, men det har ikke været muligt på nuværende tidspunkt. Vi er dog af Souzane blevet stillet i udsigt, at vi sagtens kan få flere endelige brugere af kalenderen til at teste den færdige version, når dette engang bliver aktuelt, og det er selvfølgelig en unik mulighed, vi har tænkt at benytte os af. \\
+Det første flowchart viser dynamikken i systemet fra en bruger logger på til vedkommende logger af. Se figur \ref{fig:flow1}.\\
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=9cm, height=9cm]{flow1.pdf}
-\caption{Flow-chart}
+\caption{Flowchart over kalendersystemet}
 \label{fig:flow1}
 \end{center}
 \end{figure}
 
+Brugeren vil efter succesfuldt login blive dirigeret videre til en side, der viser den aktuelle måned. Det skal være muligt for brugeren at trykke sig fremad månedsvis, så vedkommende kan indsætte en aftale i kalenderen uger eller måneder ude i fremtiden, men det skal ikke være muligt at bladre tilbage i kalenderen, eftersom dette ikke vil bibringe kalenderen nogen merværdi. Brugeren kan nu vælge mellem to veje: enten at tjekke kalenderen igennem uden at oprette eller aflyse nogen aftaler, eller vedkommende kan vælge at redigere i kalenderen. Vi har tegnet et nyt flowchart, der viser forløbet, hvis brugeren vælger at redigere i kalenderen. Se venstre side af figur \ref{fig:flow2}. Dette udvikler det første overordnede flowchart, og vi har bl.a. brugt sekvensdiagrammerne samt de relevante use cases fra afsnit 4 til at udvikle brugergrænsefladen, så der er overensstemmelse mellem de forskellige designfaser. \\
 
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{l | r}
+\includegraphics[height=7cm,width=7cm]{flow2.pdf}
+\label{fig:flow2}&
+\includegraphics[height=7cm, width=7cm]{flow3.pdf}
+\\
+\end{tabular}
+\label{tab:gt}
+\end{table}
+\begin{centering} \textbf{Figur \ref{fig:flow2} :} To flow-charts. Det venstre viser navigation i kalenderen samt oprettelse og aflysning af aftale. Det højre viser oprettelsen af en kunde. 
+\end{centering}
+
+\vspace{0.5cm}
+
+Flowchartet viser de to veje, man kan følge, hvis man enten skal aflyse eller oprette en aftale. Højre side af figur \ref{fig:flow2} viser forløbet, hvis Souzane enten skal oprette eller fjerne en kunde i systemet. Vi vil ikke gøre mere ud af disse flowcharts, men i stedet for gå videre til den prototype af kalenderen, vi har designet i form af mock-ups. \\
+
+\subsection{Prototype og mock-ups}
+Vi har nu lagt os fast på et design af kalenderen, og vil gerne have det testet af en bruger, inden vi begynder at kortlægge modellen til kode. Derfor har vi lavet en mock-up model af kalendersystemet bestående af 5 tegninger, der, når de vises i den rigtige rækkefølge, kan gøre det ud for et normalt handlingsforløb, som det vi så i use casen "Opret aftale" fra afsnit 4, og som det også fremgik af forrige flowcharts. \\
+Alle fem mock-up tegninger kan ses i korrekt rækkefølge i bilag 1, men de er grundet pladshensyn ikke taget med her. Vi har som sagt ikke testet mock-up'en på en rigtig end-user, men har fået vores kammerater, der alle selv er igang med lignende projektforløb, til at teste modellen. Det betyder, at vi får svært ved at sætte kalenderen ind i en rigtig kontekst, da vi ikke kan simulere en travl arbejdsdag med telefoner, der ringer, og møder, der skal nås. Til gengæld håber vi på, at fordi vores kammerater selv er igang med lignende projekter, så har de en nysgerrig og professionel tilgang til opgaven. \\
+Testen forløb på den måde, at en testperson blev stillet en opgave, der lød: Book en aftale i kalenderen. Derefter blev personen præsenteret for den første tegning med en login menu, og når vedkommende havde udfyldt denne korrekt, så fik personen næste tegning fremlagt. Dette fortsatte indtil, at der var oprettet en aftale i kalenderen, og testpersonen havde modtaget en bekræftigelse på aftalen. Mens vi præsenterede personen for tegningerne, overvågede Omar og jeg forløbet, og vi lagde mærke til, hvor testpersonen havde let ved at forstå designet, og hvor der var misforståelser og forvirring. Vi måtte ikke kommunikere med testpersonen undervejs, medmindre vedkommende sad fuldstændig fast. Bagefter evaluerede vi forsøget med testpersonen. Her har vi samlet nogle af de hyppigste bemærkninger:
+
+\begin{itemize}
+\item Enkelt og simpelt design.
+\item De var en, der mente, at det måske var for simpelt. Vedkommende kunne godt tænke sig nogle flere funktioner som f.eks. en hjælpe- / supportfunktion.
+\item Der var lidt forvirring om, hvordan man kom fra månedskalenderen til dags dato-visningen. Nogle troede, at pilen til at navigere frem i kalenderen ville føre dem til den valgte dag. 
+\item Ellers blev månedskalenderen opfattet som overskuelig og nem at gå til. 
+\item Der var nogen forvirring omkring, hvordan man lægger en aftale ind under dags dato.
+\item Der var flere, der begyndte at indsætte aftalen allerede på mock-up tegning 3. 
+\item Det var ikke helt klart for testpersonerne, hvordan de skulle booke en aftale, hvor tidsintervallet måske var 4 timer. De forsøgte enten at skrive aftalen ind hver halve time, eller at markere et større tidsinterval med musen.
+\item Der var nogle, der mente, at det krævede for mange videre-klik af booke en aftale, og at der var for mange forskellige skærmbilleder undervejs i forløbet. De syntes, at vi skulle overveje at forenkle designet. Folk, der logger ind på kalenderen, ved som regel præcist, hvornår de vil booke en aftale, og for dem vil det være et irritationsmoment at skulle igennem flere irrelevante skærmbilleder. 
+\item Der var også flere, der påpegede, at for folk der ofte bruger kalenderen, vil det ikke være optimalt, at de hver gang skal udfylde de samme oplysninger. Disse oplysninger kunne godt være indsat på forhånd.
+\end{itemize}
+
+Som det fremgår, kom vores testpersoner med mange gode observationer og ideer til designet. Vores egen største udfordring indtil videre har også været, hvordan man lettest og hurtigst kan indsætte en aftale i kalenderen. Hvis vi skal dømme efter testpersonerne, har vi måske ikke helt løst denne opgave endnu, og derfor må vi gennemgå visse aspekter af designet igen, inden vi koder flere fejl og uhensigtsmæssigheder ind i systemet. \\
+
+\subsection{Audio-visuel præsentation af brugergrænsefladen}
+Dette punkt planlægger vi at lave til sidst i forløbet, så vi har så meget som muligt at præsentere i videoen. 
 
 
 \section{Projektplan}
@@ -460,13 +484,13 @@ reglerne, og vi håber at kunne gøre det uden at bevæge os alt for langt væk 
 den virkelige agile Scrum systemudvikling.\\
 I stedet for de daglige estimeringer over projektets fremadskriden, har vi
 valgt at nøjes med et overordnet burndown diagram for hele projektet. Se figur
-\ref{fig:bd}. (Et brundown diagram for en enkelt sprint vil være magen til,
+\ref{fig:bd}. (Et burndown diagram for en enkelt sprint vil være magen til,
 men værdierne på førsteaksen vil være dage i stedet for uger, og værdierne på
 andenaksen vil være mindre). 
 
 \begin{figure}[!ht]
 	\centering
-\includegraphics[width=13cm, height=9cm]{burndown.pdf}
+\includegraphics[width=13cm, height=9cm]{burn2.pdf}
 \caption{Burndown diagram over projektforløbet}
 \label{fig:bd}
 \end{figure}
@@ -546,118 +570,28 @@ efterfølgende sprint.
 
 \vspace{0.5cm}
 
+\section{System test}
+Dette punkt vender vi tilbage til sidst i forløbet, når vi har tilstrækkelig med testet kode.
 
 
-\section{Designing for usability: key principles and what designers think}
-Artiklen \emph{Designing for usability: key principles and what designers
-think} \cite{usa} skrevet af Gould og Lewis handler om systemdesign set fra et
-brugervenligt perspektiv. Forfatterne begynder artiklen med at anbefale tre
-desingprincipper: tidlig fokus på brugere, empirisk analyse og iterativt
-design. De påpeger også løbende i artiklen det store spænd, der er mellem,
-hvad systemudviklere og programmører siger, og hvad de rent faktisk gør, for
-selvom de alle kan tilslutte sig de tre designprincipper, og selvom de alle
-mener, at de overholder dem i deres egne projekter, viser forfatternes
-forskning, at dette ikke er tilfældet, som det også fremgår af tabel 1 i
-artiklen. \\
-Dernæst kommer Gould og Lewis selv med en række bud på, hvorfor deres ellers
-oplagte principper ikke bliver fulgt i virkeligheden: at de ikke er værd at
-følge, at de bliver forvekslet med lignende men afgørende forskellige ideer,
-at værdien af brugerinteraktion er vurderet forkert, at de er upraktiske. Det
-viser, at principperne slet ikke er oplagte alligevel i virkelige
-systemudviklingsforløb, og at der er mange mentale samt praktiske
-forhindringer, hvis de skal føres ud i livet. \\
-Forfatterne uddyber de tre principper ved at dele et projekt op i en
-indlendende designfase og en iterativ udviklingsfase. Specielt er der i den
-indledende fase fokus på brugerne, på test af interfaces og på at opstille
-målbare adfærdsmæssige målsætninger. I den iterative udviklingsfase er fokus
-på fleksible prototyper og modulær implementering, hvilket indebærer, at
-brugertests kan fortsætte så langt ind i udviklingen som muligt. Forfatterne
-afslutter artiklen med en konkret case study: et audio distribueringssystem
-fra IBM, der mest af alt minder om en mellemting mellem en sms, en email og en
-diktafon, hvor de tre desingprincipper med succes blev fulgt. 
-Artiklen fokuserer meget på at forstå brugerne i anvendelsesområdet, som også
-OOSE bogen og OOAD kapitlerne gør meget ud af. Vi synes dog, at artiklen går
-et skridt videre ved at kvantificere adfærdsmæssige aspekter og kræve
-empirisk, målbare beviser for brugertests. Ellers kan mange af forfatternes
-forslag genkendes fra andre af vores pensums artikler.  Rolf Molich skriver i
-``User Testing, Discount User Testing'' om Thinking-aloud processen: ``It can
-be used to user test early paper prototypes of a new application for
-conceptual clarity, and it can be used to test late beta version of a new
-application interface for disasters.'' Dette er fint i tråd med Gould og
-Lewis, og Molich henviser da også til artiklen i litteraturfortegnelsen. \\
-Artiklens fokus på fleksible prototyper kan også genkendes fra Ehn og Kyng
-artiklen: ``Mocking it up''. Begge artikler fremhæver vigtigheden af at kunne
-simulere brugerinterfacet på den ene eller anden måde. Det kan være så
-simpelt som tegninger af skærmen, menuerne eller interfacet, eller det kan
-være mere avanceret, hvor der er mulighed for at reagere realtime på brugerens
-input. Begge artikler indeholder også virkelige case studies, hvor mock-ups
-indgik som en integreret del af designfasen, og hvor dette resulterede i
-ændringer i produkterne: IBM's audio-distribuerings system og et computerstyret
-pakke sorteringssystem fra sverige.\\
-Forfatterne lægger også vægt på det iterative projektforløb, som muliggører
-radikale ændringer selv langt inde i et udviklingsforløb evt. på grund af ny
-brugerforståelse. Dette er selve grundstenen i den agile systemudvikling, som
-vi kender det fra Jeff Suterland's ``Scrum Handbook'' og i mindre grad  fra
-Jim Highsmiths ``Extreme Programming''. \\
-Vi synes, at de to obligatoriske artikler udgører et sjovt match. I den ene 
-artikel hævder forfatterne, at de har fundet systemudviklingens tre vise sten.
-(Gould og Lewis' tre principper). I den anden artikel hævder forfatterne, at disse
-vise sten slet ikke eksisterer, hvorfor man må ``snyde sig til dem''.  
+\section{No silver bullet}
+Artiklen "No silver bullet" af Frederick Brooks er fra 1985, hvilket betyder, at vi har fordelen af 30 års bagklogsskab. Artiklen er et forsøg på at finde en sølvkugle, der kan nedlægge varulven, som er en metafor for softwareprojekter, hvor budgettet er overskredet, planlægningen er skredet og produktet er fejlbehæftet. Forrige rapports artikler handlede også om de indbyggede besværligheder ved softwareudvikling, men Fredericks Brooks udgangspunkt er mere filosofisk. Han deler problemet op i to dele og bruger Aristoteles' betegnelser: essens og accidens. Essensen er de indbyggede besværligheder i softwareudvikling, og accidens vedrører produktionen og de ikke-indbyggede besværligheder. \\
+Brooks opremser først de ting, han mener, hidrører essensen ved software. For det første er der kompleksiteten og softwarens mange potentielle tilstande. Dernæst konformiteten, hvor en stor del af første punkts kompleksitet stammer fra, eftersom interfaces skal være konforme med mange andre interfaces. De mange og hurtige ændringer et stykke software skal facilitere, nævnes også, og til sidst skriver han om softwarens usynlighed, dens ikke-visualiserbarhed, der berøver os nogle konceptuelle værktøjer. \\
+Dernæst opremser han de tre vigtigste fremskridt i softwareudvikling hidtil, og de hidrører alle accidensen, og er altså ikke indbyggede i selve softwaren. Det er højniveau programmeringsprog, timesharing og forenede programmeringsmiljøer. \\
+Fredericks Brooks opstiller også de tekniske udviklinger, der oftest proklameres til at indeholde "sølvkuglen". Han begynder med programmeringsproget Ada, men her er det snarere de moderne software design teknikker, der sigtes til, end til selve sproget. De næste punkter bl.a. er objektorienteret programmering, kunstig intelligens, grafisk programmering og program verifikation. \\
+Til sidst fremlægger han de områder, der adresserer essensen i softwareproblemet. Det er køb versus byg, krav specificering og hurtige prototyper, inkremental design og store designere. Disse overvejelser har vi også set i andre af artiklerne. Specielt har mange af dem handlet om iterativ, inkremental systemudvikling; f.x. Scrum-artiklerne og "Designing for usability". Den pessimistiske udmelding om manglende produktions fremgang kan også genfindes i "A rational design proces".
 
-\section{A rational design proces: How and why to fake it}
-Den anden artikel \emph{A rational design proces: How and why to fake it} af
-David Parnas og Paul Clements argumenterer for, hvorfor software designprocessen
-altid vil være en tilnærmelse til det ideelle systemudviklingsforløb. Forfatterne
-begynder med at opliste, hvorfor er projektforløb ikke kan foregå fuldstændig
-rationelt. Den vigtigste forhindring skal igen findes i brugerne af systemet. Som
-i den foregående artikel frmehæves det, hvorledes brugerne ikke altid ved, hvad
-de virkeligt vil have, og at dette kan føre til ændringer langt inde i
-designprocessen. Det betyder, at designere er nødt til at ``backtracke'',
-hvilket invaliderer det oprindelige, rationelle beslutningsforløb. En anden
-forhindring er designernes forudfattede ideer, som kan føre til, at ideer,
-software samt designmønstre fra tidligere projekter ønskes genbrugt, måske af
-økonomiske eller tidsmæssige hensyn, selvom de ikke passer til det pågældende
-projekt. \\
-Selvom forfatterne hævder, at det ideelle projektforløb ikke eksisterer,
-argumenterer de for, hvorfor designere skal ``fake'' det, og her er
-dokumentation alfa-omega. Dokumentationen af et projekt starter allerede med
-kravspecifikationen, som er et udgangspunkt, programmører altid kan gå tilbage
-til for at danne sig et overblik over systemets opførsel. Derudover skal hele
-modulstrukturen dokumenteres undervejs i projektet, og det samme skal modulernes 
-interfaces. Alle designbeslutninger skal noteres, valg og fravalg,
-alternativer og rationalerne bagved beslutningerne beskrives. Dette har vi 
-også læst om i OOSE bogens kapitel 12 ``Rationale Management'', men Parnas og
-Clements giver rationale management et twist ved at ``fake'' undervejs, når
-allerede truffede beslutninger skal ændres. Hvis ændringer har invalideret
-dokumentationen, skal man ``fake'' det således, at ændringen kommer til at
-fremstå, som var den en del af det oprindelige design. Hvis dette gøres
-konsekvent i projektet, vil man tilsidst stå med en (tilnærmet) ideel,
-rationel projektbeskrivelse. \\
-Vi er fristede til at hævde, at denne artikel ligger sig et sted midt imellem
-forrige artikel og Peter Naurs ``Programming as theory building''. Peter Naur
-beskriver bl.a. kløften mellem programmeringsmetoder brugt i
-systemudviklingen og så teori bygning, som han mener er grundstenen i
-softwareprojekter. Der er et spring fra første artikels hands-on, praktiske
-tilgang, over anden artikels dokumenterende, ``fakede'' rationale management,
-til Peter Naurs opgør med programmeringsmetoder og fokusering på teori
-opbygning. 
-Den lidt pessimistiske melding om, at systemudviklingen ikke har
-leveret nogen nævneværdig fremgang i produktivitet og simplicitet, går også igen
-i Frederick Brooks ``No silver bullit''.
-Ligesom hos Peter Naur er abstraktionsniveauet en anelse højere; Brooks
-indlender med at skrive om Aristoteles og essens versus tilfældigheder. Her er 
-det ikke kun tilfældigheder, der umuliggører designprocessen, men selve
-softwareudviklingens indbyggede kompleksitet. Vi vil også slutteligt nævne,
-hvordan alle disse forskellige overvejelser fra alle artiklerne, summeres i
-artiklen fra ugeseddel 8 ``No silver bullit. Software engineering reloaded''.
-Her får vi en gennemgang af op-
-og nedture, succeer og fiaskoer for de mange tilgange til systemudviklingen
-igennen de sidste 25 - 30 år. (Artiklen er fra 2008). Der er en af deltagerne
-i artiklen (Frederick Brooks vareulv fra den oprindelige ``No silver bullit''), 
-der kommer ind på det umulige i at gennemføre gentagelige eksperimenter for at
-sammenligne softwareudvikling. Peter Naur skriver det samme i sin artikel.
-Det eneste man kan gøre er at diskutere til konferencer, siger varulven. 
 
+\section{Cardboard Computers: Mocking-it-up or Hands-on the Future}
+Indledningsvis starter afsenderne, som er to professionelle designers, at introducere os for hvordan hele forløbet inden for avis-branchen foregik i slut 70'erne. Hvordan arbejdet mellem journalisten og typograf udspillede. Miljøet og teknologien bliver belyst, og ikke mindst hvor kompliceret arbejdsbyrden i sin tid egentlig var. Efterfølgende  er det her afsenderne indleder til  UTOPIA-projektet hvor de benytter “Mocking-it-up” -  metoden.  \\ 
+Mock it up er I sig selv ikke et avanceret system som kræver en del, men et system med lavt funktionalitet, men efter deres egen overbevisning, et system der er til at forstå, nemt og sjovt at arbejde med og ikke mindst et billigt alternativt. Under tiden hvor artiklen blev udarbejet, beskriver de også hvor succesfuld industri-branchen brugte denne metode. \\
+Industri designers fra Sverige var et at de eksempler som artiklen brugte til at beskrive hvordan forløbet med denne teknik forløb – afsenderen afslutter denne fase med at fremtidens projekter vil få gavn af at bruge mock-ups, og at dette vil forstærke projekterne for professionelle designers. Et andet eksempel hvor teknikken bliver brugt, er ved ”language game”,  hvor de brugte øvelser inden for denne teknik til at kunne skitsere problematikken og sammenspillet mellem de ”professionelle designers” og ”design users”  - hele dette for at hjælpen kunne forbedres. \\
+
+\noindent \emph{”In summary, mock-up becomes useful when they make sense to the participant...()...”}\\
+
+\noindent Det er tydeligt at mærke at afsenderne kraftigt anbefaler denne teknik og samtidig viser at det kan bruges til meget andet en it-projekter. Denne form for teknik er ikke så meget software-baseret men mere en slags hjælp til at kunne skitsere ens projekt og gøre det mere gennemskueligt. UTOPIA-projektet mellem journalisten og typografen er kernen af artiklen og herfra udspringer de forskellige eksempler – både på godt og ondt – hvordan tekniken har sine fordele og ulemper. \\
+Det var sågar så effektivt, at Morten som deltog I et projekt hvor de brugte denne teknik faldt helt ind sin egen verden og trykkede på et card-box fordi det kom så tæt på det realitiske.  Derfor et meget vigtig aspekt I denne teknik er at brugeren forstår at fokusere på opgaven, frem for at analysere objekter og relationer. \\
+Mock-up – efter sigende er et begreb der efterspørger brugen af computer  som en vision for et system, frem for den realistiske funktionalitet. Dette kan lyde paradoksalt, men det er tankegangen med tekniken mock-up.  Afslutningsvis  skal det nævnes at det er tydeligt at denne teknik har sine fordelle og ulemper, men vælger man at bruge tid og sætte sig ind I et godt projekt, vil mock-up teknikken hjælpe en godt på vej – denne teknink er for alle med interesse og sans for god projekter. 
 
 
 
@@ -678,21 +612,65 @@ Det eneste man kan gøre er at diskutere til konferencer, siger varulven.
 		Scrum Training Institute, Massachusetts,
 		Årstal: ?.
 
-	\bibitem{usa}
-		J.D. Gould og C. Lewis, 
-	\emph{Designing for usability: key principles and what designers
-	think},
-	Commun. ACM 28,
-	1985.
-\bibitem{fake}
-	D.L. Parnas og P.C. Clements,
-	\emph{A rational design proces: How and why to fake it},
-	IEEE Trans. Eoftw. Eng. 12,
-	1986.
+
 \end{thebibliography}
 
+\newpage
 
 \section{Bilag}
+
+\subsection{Bilag A: Mock-ups af kalenderen}
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics{mock1.pdf}
+\caption{Mock-up tegning 1.}
+\end{center}
+\end{figure}
+
+
+\newpage
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics{mock2.pdf}
+\caption{Mock-up tegning 2.}
+\end{center}
+\end{figure}
+
+
+\newpage
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics{mock3.pdf}
+\caption{Mock-up tegning 3.}
+\end{center}
+\end{figure}
+
+
+\newpage
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics{mock4.pdf}
+\caption{Mock-up tegning 4.}
+\end{center}
+\end{figure}
+
+
+\newpage
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics{mock5.pdf}
+\caption{Mock-up tegning 5.}
+\end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Bilag B: Første product- og sprint backlog}
 
 \begin{center}
 	\begin{tabular}{|p{8cm}|l|l|l|}
@@ -750,10 +728,22 @@ KT ønsker en hjemmeside med kontaktinformation, billeder og et enkelt design.
 
 \vspace{0.5cm}
 
+\newpage
 
+\subsection{Bilag C: Referat af 2. kundemøde}
 
+Referat af andet kundemøde.\\
 
+Deltagere: Omar Khalidan, Souzanne Khalidan, Morten Trolle
+Sted: Biocenter. Fredag den 9. maj 2014. Klokken 13 - 14.30.\\
 
+Andet kundemøde startede med, at Souzanne gennemgik hvilke opgavetyper, hun som tolk oftest kommer ud for. Til det formål præsenterede hun os for en række mails og faxbeskeder, hvor hendes samarbejdspartnere havde booket hende til en opgave. I forhold til sidste kundemøde blev kundegrundlaget yderligere udspecificeret, idet hun detaljeret fortalte hvilke samarbejdspartnere, der bruger hende; hvor mange, der bruger hende; på hvilke tidspunkter, de bruger hende. I forhold til det første kundemøde, blev vi måske lidt overraskede over antallet af samarbejdspartnere, som hun anslog til omkring 100. Det blev også præciseret, at det ikke er den samme person hos hver partner, der booker Souzanne, men at der i politiet f.x. godt kan være flere forskellige, der booker hende. \\
+I den forbindelse snakkede vi også om brugeroprettelse, og om Souzanne selv skal lægge sine kunder ind i systemet, eller om kunderne opretter sig selv. Vi blev enige om, at Souzanne oprettter de brugere, der er til systemet, da dette vil være det letteste for hendes kunder. Hun vil så præsentere dem for et brugernavn og password, så de efterfølgende kan logge på kalenderen. \\
+Vi diskuterede også flere problemstillinger ved selve kalenderen. Souzanne vil gerne have, at brugerne i kalenderen kan se, om hun er optaget, og hvis hun er optaget, om det er fordi, hun slet ikke er til at træffe (f.x. ved ferie), eller om kunderne kan træffe hende telefonisk. Vi snakkede om at løse problemet med forskellige farvekoder for de forskellige aftaletyper, så booket kunne være grøn, ledig kunne være rød osv. \\
+Når kunderne booker en tid, skal de også oplyse flere ting, såsom sted, adresse, afdeling, etage, forventet tid, opgavetype (mundtligt, skriftligt, telefonisk). 
+Souzanne havde også i forhold til første kundemøde tænkt over, om hendes faktureringssystem på en eller anden måde kunne spille sammen med kalenderen og specielt alle aftalerne i kalenderen. Da hun arbejder meget og derfor har meget travlt, kan hun sagtens glemme at sende en faktura for udført arbejde. Hun ville gerne have denne proces automatiseret på en eller anden måde, og vi sagde, at vi ville undersøge dette uden dog at love hende noget. Evt. kan det være, at vi i sommerferien arbejder videre på systemet og får noget sådant implementeret. \\
+Vi kom også ind på spørgsmålet om, hvor det endelige system skal placeres. Det vil være for dyr en løsning for Souzanne og K. Translation at købe en helt ny server til at hoste systemet på, så vi blev enige om, at Omar og jeg finder et webhotel eller en anden udbyder af serverplads. På den måde får Souzanne også så lidt med systemets daglige drift at gøre, og det er en stor prioritet for hende. Vi spurgte også ind til en ønsket hjemmesideadresse, og kom frem til noget i stil med (hvis den er ledig): bookentolk.dk.  
+Til sidst snakkede vi også om præsentationen af hjemmesiden. Som det også fremgik på første kundemøde, skal det være så let for kunden som muligt at booke en tid. Derudover vil Souzanne gerne have hjemmesiden holdt i lyse pastelfarver evt. blandet med sort.
 
 \end{document}
 
