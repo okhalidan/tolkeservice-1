@@ -7,6 +7,8 @@ Omar testredigering
 
 
 hej morten og farvel morten
+
+hej morten og farvel morten
 """
 
 from django.test import TestCase
