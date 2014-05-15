@@ -8,10 +8,10 @@
 \usepackage{multirow}
 \newcommand{\nextitem}{\par\hspace*{\labelsep}\textbullet\hspace*{\labelsep}}
 
-\title{Kalender og aftalebooking til K. Translation}
+\title{Kalender \& booking til K. Translation}
 \author{Omar Khalidan - [26-10-87]\\
      Morten Trolle Nielsen - [14-06-79]\\ \\
-    Instruktor: Andreas Frisch\\ \\
+    Instruktor: Andreas Frisk\\ \\
 Projekt i Systemudvikling 2014 (ProjDat2014)}
 
 \begin{document}
@@ -22,21 +22,8 @@ Projekt i Systemudvikling 2014 (ProjDat2014)}
 \newpage
 
 \section{Abstract}
-Dette er anden delrapport i faget Systemudvikling. Vores udgangspunkt er første
-delrapport, som vi her udvikler og udbygger. Vi vil fortsætte arbejdet med og
-præsentationen af den IT-løsning, som vi har udviklet til kunden; tolkeservicen
-K. Translation. Specielt vil vi fokusere på modelleringen af systemet. Vi vil 
-præsentere anvendelsesområdet og problemområdet; både med tekst og UML-diagrammer.
-Derefter vil vi også med afsæt i første delrapports kravspecificering videreudvikle
-denne og se på de funktionelle og nonfunktionelle krav. Vi vil tage modelleringen
-et skridt videre ved hjælp af use-cases, så vi kan understøtte vores modellering med
-konkrete eksempler på brug af systemet. Derudover vil vi argumentere for vores
-valg af softwarearkitektur og webframework. \\
-Vi vil afslutte denne anden delrapport med to korte referater og efterfølgende
-analyse og perspektivering af de to artikler, der er et krav til rapporten.\\
-Vi er selv førsteårs datalogistuderende ved Københavns Universitet, og det
-forventes, at læseren befinder sig på samme læringsniveau eller højere, idet
-der undervejs vil forekomme adskillige fagspecifikke termer. 
+Dette er tredie delrapport i faget Systemudvikling. Vi vil fortsætte arbejdet med og præsentationen af den IT-løsning, som vi er ved at udvikle til kunden; tolkeservicen K. Translation. Vores udgangspunkt er første og anden delrapport, som vi har udviklet og udbygget. Vi har analyseret anvendelsesområdet, skrevet de vigtigste use cases og på den baggrund opstillet de funktionelle og ikke-funktionelle krav. Udfra dette arbejde har vi modelleret problemområdet. Vi har også lagt os fast på en softwarearkitektur, og brugergrænsefladen er blevet afprøvet ved hjælp af den første prototype og mock-ups. I forhold til forrige rapport har vi udvidet projektplanen med nye product- og sprint backlogs og opdateret burndown diagrammet. \\
+Vi vil afslutte denne tredie delrapport med to korte referater og efterfølgende analyse samt perspektivering af de to artikler, der er et krav til rapporten. Vi er selv førsteårs datalogistuderende ved Københavns Universitet, og det forventes, at læseren befinder sig på samme læringsniveau eller højere, idet der undervejs vil forekomme adskillige fagspecifikke termer. 
 
 \newpage
 
@@ -74,7 +61,7 @@ Vi må forvente, at kundesegmentet har meget svingende it-kundsskaber, men at de
 Slutteligt har vi udvidet modellen med en ekstern kalenderklasse, der kan synkronisere Souzanes private kalender med vores kalendersystem og overføre hendes private
 aftaler. Dette er et ønske fra Souzane, idet hun har en meget travl hverdag, hvor private aftaler godt kan ligge i vejen for arbejdsopgaver, og kunderne skal kunne se præcist, hvornår Souzane er tilrådighed. Det skal dog siges, at vi er meget usikre på denne funktion, og at vi potentielt må fortælle K. Translation, at dette ligger uden for vores formåen. I så fald må Souzane selv lægge sine egne aftaler ind i kalenderen. \\
 
-\section{Use-cases}
+\section{Use cases}
 I dette afsnit vil vi beskrive systemets 4 vigtigste use cases. Udgangspunktet er anvendelsesområdet, hvor vi tager de forskellige aktører og simulerer et typisk handlingsforløb.  Resultatet skulle gerne være en øget brugerforståelse og en overordnet forståelse af systemfunktionaliteten. Dette arbejde kulminerer i næste afsnit med selve kravspecifikationen. \\
 Vi begynder med at præsentere et højniveau-diagram over samtlige use cases, se figur \ref{fig:use}, og efterfølgende vil vi identificere de fire vigtigste use cases. 
 
@@ -419,12 +406,13 @@ systemet i programmeringssproget Python. Det er også et godt valg, fordi det en
 lære det undervejs i projektet, mens det andet medlem kan lære det fra sig evt. gennem pair-programming. \\ 
 
 \section{Brugergrænseflade}
+\subsection{Brugergrænseflade og flowcharts}
 Vi er nu nået så langt i projektudviklingen, at vi kan begynde at arbejde med designet og brugergrænsefladen. Vi præsenterer her den første prototype af systemet ved hjælp af mock-ups og screen-shots af det påtænkte design. Derudover tegner vi de vigtigste flowcharts, så vi kan få et overblik over dynamikken i systemet. Vi vil få en person, der ikke er tilknyttet projektet, til at gennemgå vores prototype mock-up. Det mest ideelle ville dog have været, at få en virkelig bruger af det endelige kalendersystem, til at evaluere prototypen, men det har ikke været muligt på nuværende tidspunkt. Vi er dog af Souzane blevet stillet i udsigt, at vi sagtens kan få flere endelige brugere af kalenderen til at teste den færdige version, når dette engang bliver aktuelt, og det er selvfølgelig en unik mulighed, vi har tænkt at benytte os af. \\
 Det første flowchart viser dynamikken i systemet fra en bruger logger på til vedkommende logger af. Se figur \ref{fig:flow1}.\\
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=9cm, height=9cm]{flow1.pdf}
+\includegraphics[width=8cm, height=8cm]{flow1.pdf}
 \caption{Flowchart over kalendersystemet}
 \label{fig:flow1}
 \end{center}
@@ -443,7 +431,7 @@ Brugeren vil efter succesfuldt login blive dirigeret videre til en side, der vis
 \end{tabular}
 \label{tab:gt}
 \end{table}
-\begin{centering} \textbf{Figur \ref{fig:flow2} :} To flow-charts. Det venstre viser navigation i kalenderen samt oprettelse og aflysning af aftale. Det højre viser oprettelsen af en kunde. 
+\begin{centering} \textbf{Figur \ref{fig:flow2} og 8.2 :} To flow-charts. Det venstre viser navigation i kalenderen samt oprettelse og aflysning af aftale. Det højre viser oprettelsen af en kunde. 
 \end{centering}
 
 \vspace{0.5cm}
@@ -477,36 +465,27 @@ Dette punkt planlægger vi at lave til sidst i forløbet, så vi har så meget s
 Adskillige forelæsninger i Systemudviklingskurset har handlet om agil projektledelse og systemudvikling. Vi har fundet en sådan iterativ og inkremental tilgang til projektet spændende og kunne derfor godt tænke os at systemudvikle inden for rammerne af de agile principper, som vi bl.a. har 
 stiftet bekendsskab med i artiklen ``Jeff Sutherland's Scrum
 Handbook''\cite{scrum}. Det vil dog ikke være muligt, at gennemføre projektet i komplet overensstemmelse med Scrum og alle de agile regler. For det første vil det betyde, at vores kunde skal afse betydelig mere tid til projektet, end hun umiddelbart har planlagt, hvis hun løbende skal opdate ``Product Backlog'' og deltage i prioriteringsmøder ved hver sprints begyndelse. Derudover vil det ikke være realistisk, at vi selv holder daglige Scrum møder,
-og at vi kan levere al den dokumentation et virkeligt Scrum forløb
-forudsætter som f.eks. de daglige overslag over vores egne fremskridt i forhold
-til opgaverne i den aktuelle sprint. Derfor vil vi slække på nogle af 
-reglerne, og vi håber at kunne gøre det uden at bevæge os alt for langt væk fra 
-den virkelige agile Scrum systemudvikling.\\
-I stedet for de daglige estimeringer over projektets fremadskriden, har vi
-valgt at nøjes med et overordnet burndown diagram for hele projektet. Se figur
-\ref{fig:bd}. (Et burndown diagram for en enkelt sprint vil være magen til,
-men værdierne på førsteaksen vil være dage i stedet for uger, og værdierne på
+og at vi kan levere al den dokumentation et virkeligt Scrum forløb forudsætter som f.eks. de daglige overslag over vores egne fremskridt i forhold til opgaverne i den aktuelle sprint. Derfor vil vi slække på nogle af 
+reglerne, og vi håber at kunne gøre det uden at bevæge os alt for langt væk fra den virkelige agile Scrum systemudvikling.\\
+I stedet for de daglige estimeringer over projektets fremadskriden, har vi valgt at nøjes med et overordnet burndown diagram for hele projektet. Se figur
+\ref{fig:bd}. (Et burndown diagram for en enkelt sprint vil være magen til, men værdierne på førsteaksen vil være dage i stedet for uger, og værdierne på
 andenaksen vil være mindre). 
 
 \begin{figure}[!ht]
 	\centering
 \includegraphics[width=13cm, height=9cm]{burn2.pdf}
-\caption{Burndown diagram over projektforløbet}
+%\caption{Burndown diagram over projektforløbet}
 \label{fig:bd}
 \end{figure}
+\begin{center}
+\textbf{Figur 9:} Burndown diagram over projektforløbet
+\end{center}
 
-Vi har som udgangspunkt afsat mellem 8 og 10 uger til det agile projektforløb
-og bedømt den påkrævede arbejdsindsats til at være 200 timer, hvilket vil sige 100
-timer til hver, da vi er to mand i gruppen. Dette overslag er dog yderst
-usikkert, men vi har aldrig prøvet at arbejde på denne måde før, så det bliver
-spændende at se, om vores estimationer bliver mere præcise undervejs. Vi har
-planlagt at udvikle i sprints af 14 dages varighed, men vi kan udvide dette til 3
-uger, hvis et af punkterne i produkt backloggen forekommer mere omfangsrigt.\\
-Indehaveren af K. Translation har ofte meget travlt og kan som sagt ikke
-deltage i hvert nyt sprintmøde. Derfor har vi besluttet at simulere disse
-møder ved, at vi selv skriver og opdater produkt backloggen og gør det med
-udgangspunkt i kravspecifikationen. Vi bliver herved in effect vores egen 
-proxykunde. Den indledende produkt backlog kan ses i tabel 1.
+Vi har som udgangspunkt afsat mellem 8 og 10 uger til det agile projektforløb og bedømt den påkrævede arbejdsindsats til at være 200 timer, hvilket vil sige 100
+timer til hver, da vi er to mand i gruppen. Dette overslag er dog yderst usikkert, men vi har aldrig prøvet at arbejde på denne måde før, så det bliver spændende at se, om vores estimationer bliver mere præcise undervejs. Vi har
+planlagt at udvikle i sprints af 14 dages varighed, men vi kan udvide dette til 3 uger, hvis et af punkterne i produkt backloggen forekommer mere omfangsrigt.\\
+Indehaveren af K. Translation har ofte meget travlt og kan som sagt ikke deltage i hvert nyt sprintmøde. Derfor har vi besluttet at simulere disse møder ved, at vi selv skriver og opdater produkt backloggen og gør det med udgangspunkt i kravspecifikationen. Vi bliver herved in effect vores egen 
+proxykunde. Den anden produkt backlog kan ses i tabel 5. Den første produkt backlog kan ses i bilag B.
 
 \begin{center}
 	\begin{tabular}{|p{8cm}|l|l|l|}
@@ -529,21 +508,12 @@ hjemmesidens kalender og på den måde overføre sine private aftale. & 7 & Lav 
  35 \\ \hline
 \end{tabular}
 \end{center}
-\begin{center}\textbf{Tabel 1} Anden Produkt Backlog
+\begin{center}\textbf{Tabel 5} Anden Produkt Backlog
 \end{center}
 \vspace{0.5cm}
 
-KT's ønsker står i prioriteret rækkefølge, og vi har yderligere tilføjet en
-kolonne, hvor vi kan estimere nytteværdien af punktet med Høj, Lav eller
-Middel. Sidste kolonne viser vores bedømmelse som udviklere af den påkrævede
-arbejdsindsats. Ofte vil punkterne i produkt backloggen være formuleret som
-små brugerhistorier eller endda som deciderede use cases. Dernæst har vi
-valgt ud, hvilke punkter vi koncentrerer os om i den første sprint. Dette
-fremgår af tabel 2, som er Sprint Backloggen. Punkterne bliver yderligere
-delt op i sprint opgaver, og hver udvikler påtager sig et antal opgaver og
-kommer igen med en bedømmelse af den påkrævede arbejdsindsats i timer. Sprint
-backloggen bliver dermed udgangspuktet for systemudviklingen i den
-efterfølgende sprint. 
+KT's ønsker står i prioriteret rækkefølge, og vi har yderligere tilføjet en kolonne, hvor vi kan estimere nytteværdien af punktet med Høj, Lav eller
+Middel. Sidste kolonne viser vores bedømmelse som udviklere af den påkrævede arbejdsindsats. Ofte vil punkterne i produkt backloggen være formuleret som små brugerhistorier eller endda som deciderede use cases. Dernæst har vi valgt ud, hvilke punkter vi koncentrerer os om i den første sprint. Dette fremgår af tabel 6, som er den anden sprint backlog. Den første kan findes i bilag B. Punkterne bliver yderligere delt op i sprint opgaver, og hver udvikler påtager sig et antal opgaver og kommer igen med en bedømmelse af den påkrævede arbejdsindsats i timer. Sprint backloggen bliver dermed udgangspuktet for systemudviklingen i den efterfølgende sprint. 
 
 
 \begin{center}
@@ -565,7 +535,7 @@ efterfølgende sprint.
 \end{center}
 
 \begin{center}
-\textbf{Tabel 2} Anden Sprint Backlog
+\textbf{Tabel 6} Anden Sprint Backlog
 \end{center}
 
 \vspace{0.5cm}
@@ -573,13 +543,20 @@ efterfølgende sprint.
 \section{System test}
 Dette punkt vender vi tilbage til sidst i forløbet, når vi har tilstrækkelig med testet kode.
 
+\section{Projektarbejdet}
+For at runde projektarbejdet af vil vi kort beskrive det foreløbige gruppearbejde og kundesamarbejde. Vi har et utroligt godt samarbejde i vores tomandsgruppe, og vi bidrager begge på de områder, hvor vi hver har vores forcer. Da vi kun er to mand i gruppen, er det meget let at træffe beslutninger og derefter føre dem ud i livet. I en større gruppe skal flere personer tages med på råd, og der kan gå rigtig meget tid med diskussioner, og det er vores erfaring, at de kompromiser, hvor alle får lige meget ret, ikke altid er de bedste. Ulempen ved vores tomandsgruppe er, at vi netop ikke får prøvet at diskutere, argumentere for vores ideer og indgå kompromiser i samme omfang som hos en større gruppe, og at dette nok snarere er normen end undtagelsen i erhvervslivet. Hvis vores gruppe var større, kunne det have været spændende, at udpege en decideret Scrum-master til at lede arbejdet, skære igennem og træffe de endelige beslutninger. Denne rolle kunne evt. varetages af en ny person ved hver ny sprint. \\
+Samarbejdet med vores kunde, har også været spændende. Souzane er let at arbejde sammen med, men hun ville ikke bruge tid på projektet, hvis hun ikke mente, at kalenderen virkelig kunne gøre en forskel i hendes travle hverdag, så hun stiller samtidig store krav til os. Vi har dog gjort hende det klart, at vi ikke kan garantere at nå i mål med hele projektet, men at vi i så fald må fortsætte med udviklingen på egen hånd i sommerferien. Souzane har et stort netværk, og hun kender mange tolke, der har præcis de samme udfordringer som hende selv, og hun har talt så ivrigt om dette behov for en kalender til tolke, at vi ikke vil afvise, at vi vil arbejde videre med det på egen hånd. \\ 
+
 
 \section{No silver bullet}
-Artiklen "No silver bullet" af Frederick Brooks er fra 1985, hvilket betyder, at vi har fordelen af 30 års bagklogsskab. Artiklen er et forsøg på at finde en sølvkugle, der kan nedlægge varulven, som er en metafor for softwareprojekter, hvor budgettet er overskredet, planlægningen er skredet og produktet er fejlbehæftet. Forrige rapports artikler handlede også om de indbyggede besværligheder ved softwareudvikling, men Fredericks Brooks udgangspunkt er mere filosofisk. Han deler problemet op i to dele og bruger Aristoteles' betegnelser: essens og accidens. Essensen er de indbyggede besværligheder i softwareudvikling, og accidens vedrører produktionen og de ikke-indbyggede besværligheder. \\
+Artiklen "No silver bullet" af Frederick Brooks er fra 1986, hvilket betyder, at vi har fordelen af 30 års bagklogsskab. Artiklen er et forsøg på at finde en sølvkugle, der kan nedlægge varulven, som er en metafor for softwareprojekter, hvor budgettet er overskredet, planlægningen er skredet og produktet er fejlbehæftet. Forrige rapports artikler handlede også om de indbyggede besværligheder ved softwareudvikling, men Fredericks Brooks udgangspunkt er mere filosofisk. Han deler problemet op i to dele og bruger Aristoteles' betegnelser: essens og accidens. Essensen er de indbyggede besværligheder i softwareudvikling, og accidens vedrører produktionen og de ikke-indbyggede besværligheder. \\
 Brooks opremser først de ting, han mener, hidrører essensen ved software. For det første er der kompleksiteten og softwarens mange potentielle tilstande. Dernæst konformiteten, hvor en stor del af første punkts kompleksitet stammer fra, eftersom interfaces skal være konforme med mange andre interfaces. De mange og hurtige ændringer et stykke software skal facilitere, nævnes også, og til sidst skriver han om softwarens usynlighed, dens ikke-visualiserbarhed, der berøver os nogle konceptuelle værktøjer. \\
 Dernæst opremser han de tre vigtigste fremskridt i softwareudvikling hidtil, og de hidrører alle accidensen, og er altså ikke indbyggede i selve softwaren. Det er højniveau programmeringsprog, timesharing og forenede programmeringsmiljøer. \\
 Fredericks Brooks opstiller også de tekniske udviklinger, der oftest proklameres til at indeholde "sølvkuglen". Han begynder med programmeringsproget Ada, men her er det snarere de moderne software design teknikker, der sigtes til, end til selve sproget. De næste punkter bl.a. er objektorienteret programmering, kunstig intelligens, grafisk programmering og program verifikation. \\
-Til sidst fremlægger han de områder, der adresserer essensen i softwareproblemet. Det er køb versus byg, krav specificering og hurtige prototyper, inkremental design og store designere. Disse overvejelser har vi også set i andre af artiklerne. Specielt har mange af dem handlet om iterativ, inkremental systemudvikling; f.x. Scrum-artiklerne og "Designing for usability". Den pessimistiske udmelding om manglende produktions fremgang kan også genfindes i "A rational design proces".
+Til sidst fremlægger han de områder, der adresserer essensen i softwareproblemet. Det er køb versus byg, krav specificering og hurtige prototyper, inkremental design og store designere. Disse overvejelser har vi også set i andre af artiklerne. Specielt har flere af dem handlet om iterativ, inkremental systemudvikling; f.x. Scrum-artiklerne og "Designing for usability". Den pessimistiske udmelding om manglende produktions fremgang kan også genfindes i "A rational design proces".
+Artiklen havde åbenbart stor indvirkning på datidens dataloger. Der er flere, der i artiklen "No silver bullet: Software engineering reloaded", fortæller om, hvor stort et indtryk artiklen gjorde på dem i 85. Baggrunden for denne artikel er en konference afholdt for at fejre 20-årsdagen for Frederick Brooks artikel. På konferencen optræder varulven fra Brooks' oprindelig artikel også, og her skal han igen lægge flest mulige hindringer i vejen for et ideelt softwareprojekt, og som han siger: "Im alive and well", hvilket underforstået betyder, at vi 20 år senere ikke er kommet løsningen nærmere. F.eks mener varulven, at objekt orienteret programming ikke blev løsningen, fordi ingen bruger det. \\
+Vi kan sagtens genkende nogle af Frederick Brooks overvejelser i forhold til vores eget projekt. Kompleksiteten i et stykke software kan være skræmmende, og derfor prøver vi selv at bruge systemer, hvor vi kan udnytte de medfølgende moduler; lidt i stil med buy versus build tankegangen. Konformiteten og de mange interfaces, der skal spille sammen, er også et punkt, vi skal tage stilling til i vores eget projekt.\\
+
 
 
 \section{Cardboard Computers: Mocking-it-up or Hands-on the Future}
