@@ -1,14 +1,11 @@
 """
+Made by:
+Morten Trolle
+Omar Khalidan
 This file demonstrates writing tests using the unittest module. These will pass
 when you run "manage.py test".
 
 Replace this with more appropriate tests for your application.
-Omar testredigering
-
-
-hej morten og farvel morten
-
-hej morten og farvel morten
 """
 
 from django.test import TestCase
