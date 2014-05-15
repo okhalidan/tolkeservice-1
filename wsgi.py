@@ -1,4 +1,5 @@
 """
+Made by Trolle & Khalle
 WSGI config for tolk project.
 
 This module contains the WSGI application used by Django's development server
