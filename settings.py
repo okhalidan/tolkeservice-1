@@ -1,4 +1,5 @@
 # Django settings for tolk project.
+# Made by Trolle & Khalle
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
