@@ -1,3 +1,4 @@
+// Made by Trolle & Khalle 2014
 import java.util.Scanner;
 
 public class removeComma {
