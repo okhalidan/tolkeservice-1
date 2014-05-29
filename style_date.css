@@ -24,6 +24,15 @@ input.day {
 table.appointment {
 	border : 1px solid #ccc;
 	padding: 5px;
-
-
 }
+
+table.app_data {
+	float: right;
+}
+
+td.app_table {
+	padding-left:20px;
+	display:block;
+	float: top;
+}
+

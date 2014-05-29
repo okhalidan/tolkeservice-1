@@ -1,11 +1,17 @@
-<!-- Made by Trolle & Khalle 2014 -->
-<!-- Projektkursus og Systemudvikling-->
-<!-- redigeret -->
-
 {% extends "base.html" %}
+
+{% block sf %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" media="all" />
+<link rel="stylesheet" type="text/css" href="{% static 'style_date.css' %}" media="all" />
+{% endblock %}
 
 
 {% block title %}Kalender{% endblock %}
+
+{% block body %}
+<body>
+{% endblock %}
 
 {% block content %}
 
@@ -28,7 +34,7 @@
 			<tr>
 				{% for day in week %}
 				{% if day != 0 %}
-				<td {% if day != 0 %} onMouseOver="this.bgColor='#eeeeee';" onMouseOut="this.bgColor='white';" {% endif %} ><a href="{{ year }}/{{ month }}/{{ day }}"> {{ day }} </a></td>
+				<td {% if day != 0 %} onMouseOver="this.bgColor='#eeeeee';" onMouseOut="this.bgColor='white';" {% endif %} ><a href="dag/{{ year }}/{{ month }}/{{ day }}"> {{ day }} </td></a>
 				{% else %}
 				<td> </td>
 				{% endif %}

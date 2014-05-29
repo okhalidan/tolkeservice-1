@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from kalender.models import AppointmentForm, Appointment
 
 import calendar
 import datetime
@@ -31,8 +32,39 @@ def kalender(request):
 	return render(request, 'kalender.html', {'weeks' : weeks, 'year' : year, 'month' : month})
 
 
-def date(request, year, month, day):
-	clock_lst = ['07.00', '08.00', '09.00', '10.00', '11.00', '12.00', '13.00', '14.00', '15.00', '16.00', '17.00', '18.00', '19.00', '20.00']
 
-	return render(request, 'date.html', {'year' : year, 'month' : month, 'day' : day, 'clock_lst' : clock_lst})
+
+def date(request, year, month, day):
+	clock_lst = ['07.00', '08.00', '09.00', '10.00', '11.00', '12.00', '13.00',
+		     '14.00', '15.00', '16.00', '17.00', '18.00', '19.00', '20.00']
+
+	if request.method=='POST':
+		form=AppointmentForm()
+		f=datetime.date(int(year), 4, int(day))
+		if form.is_valid():
+			form=Appointment(date=f, start=request.POST['start'], end=request.POST['end'], 
+			                 place=request.POST['place'], adress=request.POST['adress'], 
+					 building=request.POST['building'], floor=request.POST['floor'], 
+					 zipcode=request.POST['zipcode'], city=request.POST['city'], 
+					 telephone=request.POST['telephone'], email=request.POST['email'], 
+					 message=request.POST['message'])
+			form.save()
+			return HttpResponseRedirect('/tolk/kt/')  #/dag/%s/%s/%s' % (year, month, day))
+		
+	else:
+		form = AppointmentForm()
+	
+	return render(request, 'date.html', {'form' : form, 'year' : year, 'month' : month, 
+		                              'day' : day, 'clock_lst' : clock_lst})
+
+
+
+
+
+
+
+
+
+
+
 

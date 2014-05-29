@@ -1,28 +1,27 @@
-<!-- Made by Trolle & Kalle 2014 Projektkursus & Systemudvikling -->
-<!-- redigeret -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="dk">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		{% load staticfiles %}
-		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"  media="all" />
-		<link rel="stylesheet" type="text/css" href="{% static 'style_date.css' %}"  media="all" />
-	
+		{% block sf %}
+		{% endblock %}	
 		<title>{% block title %}{% endblock title %}</title>
 	</head>
+	{% block body %}
 	<body>
+	{% endblock %}
+
 		<div id="header">
 		{% block head %}
 		{% endblock %}
 		</div>
 		
-		<div id="content">
 		{% block content %}
-		{% endblock %}
+		<div class="content">
 		</div>
+		{% endblock %}
 		
 		<hr>
-		<div id="footer">
+		<div class="footer">
 		{% block footer %}
 		{% endblock %}
 		</div>

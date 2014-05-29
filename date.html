@@ -1,21 +1,43 @@
-<!-- Made by Trolle & Khalle 2014 -->
-
 {% extends "base.html" %}
+
+{% block sf %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style_date.css' %}" media="all" />
+{% endblock %}
 
 {% block title %}Dato{% endblock %}
 
 {% block content %}
-
+{{ t  }}
 
 <h3 align="center">{{ day }} {{ month }} {{ year }}</h3>
+<table><tr><td>
+	<form action="" method="POST">{% csrf_token %}
+	{% for clock in clock_lst %}
+	<table class="appointment">
+		<tr><td class="td_clock"><h4>{{ clock }}</h4></td><td><input class="day" type="text" name="appointment" value="" id="app" size="50" /></td></tr>
+	{% endfor %}
+	</table>
+	</form>
+	</td><td class="app_table">
+	<form enctype="multipart/form-data" action="" method="POST">{% csrf_token %}
+	<table class="app_data">
+		<tr><td>Start:</td><td>{{ form.start }}</td></tr>
+		<tr><td>Slut:</td><td>{{ form.end }}</td></tr>
+		<tr><td>Sted:</td><td colspan="3">{{ form.place }}</td></tr>
+		<tr><td>Adresse:</td><td colspan="3">{{ form.adress }} </td></tr>
+		<tr><td>Bygning:</td><td>{{ form.building }}</td></tr>
+		<tr><td>Etage:</td><td>{{ form.floor }}</td></tr>
+		<tr><td>Postnr.:</td><td>{{ form.zipcode }}</td></tr>
+		<tr><td>By:</td><td>{{ form.city }}</td></tr> 
+		<tr><td>Tlf.:</td><td>{{ form.telephone  }}</td></tr>
+		<tr><td>Email:</td><td colspan="4">{{ form.email }}</td></tr>
+		<tr><td>Andet:</td><td colspan="4">{{ form.message }}</td></tr>
+		<tr><td>Vedhæft:</td><td colspan="3">{{ form.attach }}</td></tr>
+		<tr><td></td><td><input type="submit" value="Send"></td></tr>
+	</table>
+	</form>
 
-		<form action="" method="POST">{% csrf_token %}
-		{% for clock in clock_lst %}
-		<table class="appointment">
-		<tr><td class="td_clock"><h4>{{ clock }}</h4></td><td><input class="day" type="text" name="appointment" value="" id="app" size="75" /></td></tr>
-		{% endfor %}
-		</table>
-		</form>
-
+</td></tr></table>
 
 {% endblock %}
