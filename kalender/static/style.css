@@ -1,0 +1,78 @@
+
+body.body{
+	background:black;
+	color: #0080FF;
+
+}
+
+div.footer{
+	margin: 0 auto;
+	width: 500px;	
+}
+
+
+div.content{
+	margin: 0 auto;
+	width: 500px;	
+}
+
+h1.headline{
+	margin: 0 auto;
+	width: 500px;
+}
+
+
+
+table.login{
+
+}
+
+thead.days{
+	font-family: "Times New Roman", Georgia, Serif;
+	background-color: #eee;
+	height: 30px;
+}
+
+
+.calender td{
+	border:1px solid #ccc;
+	height: 80px;
+	vertical-align: top;
+	font-size: 15px;
+	padding: 5px;
+
+}
+
+table.calender {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+
+h2 {
+	font-size:25px;
+	color: CadetBlue;
+}
+
+td a {
+	width: 100%;
+	height:100%;
+	display: block;
+}
+
+td a:link {
+	text-decoration: none;
+}
+
+td a:visited {
+	text-decoration: none;
+}
+
+td a:hover {
+	text-decoration: none;
+}
+
+td a:active {
+	text-decoration: none;
+}
+
