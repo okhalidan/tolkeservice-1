@@ -1,0 +1,574 @@
+commit 79f162731bc52b893c52f0ea9547ff1236ac6da4
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Wed Jun 4 00:49:26 2014 +0200
+
+    4 commit
+
+commit 48c4f0d6297fac6179cd81f7d5ff0989901b42b6
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sun Jun 1 05:50:28 2014 +0200
+
+    Update date.html
+
+commit a7a1084a6bbbcefbca9103cb3f5fe1c7920094ab
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sun Jun 1 05:50:07 2014 +0200
+
+    Update base2.html
+
+commit dcee4b63d9e90067c75522efe4e7bd3707a8f5d3
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sun Jun 1 05:49:44 2014 +0200
+
+    Update models.py
+
+commit 9bb5fc8df8ab35c1372ef3246d2141390875194c
+Merge: 3e40440 d1f58df
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Sun Jun 1 05:45:17 2014 +0200
+
+    Merge branch 'master' of github.com:mhtn/tolkeservice
+
+commit 3e4044020665a3d8dc853302c6941d35691b97cf
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Sun Jun 1 05:45:02 2014 +0200
+
+    3 commit
+
+commit d1f58dfc0a529807564ee68d3f82b8d9e420cab5
+Author: okhalidan <khalidan@mac.com>
+Date:   Sat May 31 21:48:07 2014 +0200
+
+    hej
+
+commit f31d9dfb7b9ac61a9bc49a0fd3e57955f34571f6
+Author: okhalidan <khalidan@mac.com>
+Date:   Sat May 31 21:38:39 2014 +0200
+
+    hej
+
+commit 3281e8da5a2d05cc2632a9102b0e1e88bab306dd
+Author: okhalidan <khalidan@mac.com>
+Date:   Sat May 31 09:35:57 2014 +0200
+
+    hej
+
+commit 008d5f7f8ce4bcb69e1d1f5cadf6672391425c46
+Author: okhalidan <khalidan@mac.com>
+Date:   Sat May 31 09:25:12 2014 +0200
+
+    hej
+
+commit a9a7d1b08b91cff310f68696184538dc45676ec0
+Author: okhalidan <khalidan@mac.com>
+Date:   Sat May 31 09:14:47 2014 +0200
+
+    hej
+
+commit 5d9709b6b14df09671428fea4161abe592b52974
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Fri May 30 01:39:27 2014 +0200
+
+    3. commit
+
+commit b8c29a71dc3aa2b944baedbf7eea5049ca400ce1
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 28 13:34:01 2014 +0200
+
+    hej
+
+commit 8177788c1b509887de7a8f8b6fb8dcf69c9db799
+Author: okhalidan <khalidan@mac.com>
+Date:   Mon May 26 09:37:50 2014 +0200
+
+    hej
+
+commit f79ed6e00a06c0733cbde3d1c7c09ae313410c55
+Author: okhalidan <khalidan@mac.com>
+Date:   Mon May 26 09:36:59 2014 +0200
+
+    hej
+
+commit 8ccd1f797909fec69f9dbf1e384252af954e5454
+Author: okhalidan <khalidan@mac.com>
+Date:   Mon May 26 09:35:31 2014 +0200
+
+    hej
+
+commit f9b377e2d78e0fbf843dbbd4d8131c166f3c814b
+Author: okhalidan <khalidan@mac.com>
+Date:   Mon May 26 09:34:17 2014 +0200
+
+    he
+
+commit 4a1d92faa38545f811c40299e1ed13a18a1dab2e
+Author: okhalidan <khalidan@mac.com>
+Date:   Mon May 26 09:33:15 2014 +0200
+
+    hej
+
+commit ec5a23ca5640f1a7abedba00e242d6e00ad3a666
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 22 14:27:14 2014 +0200
+
+    hej
+
+commit cca20d896b0f38a44cc1b1c1d06756146adcbf1e
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 22 11:21:01 2014 +0200
+
+    hej
+
+commit bc2102277a7d4022237db88ee3d4200f2bb4495b
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 22 11:19:56 2014 +0200
+
+    hej
+
+commit 61d3fd30989db4ba68faafcad733b43cec82b0c5
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 22 11:19:03 2014 +0200
+
+    hej
+
+commit 6b248441dd842464c6b811fb92ffbfd5b2e04b6c
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 22 11:17:56 2014 +0200
+
+    hej
+
+commit 3b6e7709d402dede77b614cb1773b8c36fa409ce
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 22 11:17:07 2014 +0200
+
+    hej
+
+commit 40638db9443b3fcb6d08f3a7734406c3edc78a3b
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 22 09:29:21 2014 +0200
+
+    hej
+
+commit 2ef27d916315113f0dba6a110674168217ad076e
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 22 09:25:47 2014 +0200
+
+    hej
+
+commit ab088d022a46668d591ab2fe30251cc14ef4e952
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 21 16:58:54 2014 +0200
+
+    hej5
+
+commit f7ddd15deece6052cce2667a722c6dd5c68788d6
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 21 16:58:03 2014 +0200
+
+    hej4
+
+commit 7d7aa119472d4c5f718df5f1541260ace7f24ba8
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 21 16:57:37 2014 +0200
+
+    hej
+
+commit 0a0cdd240d17b230c1e5a01687d04c8eeb6944c5
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 21 16:57:23 2014 +0200
+
+    hej2
+
+commit 277391b9ceaa546479c879ecbbdc8326286f28e5
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 21 16:55:27 2014 +0200
+
+    hej
+
+commit c15a67f892416fd601794f8ab59a3f2142658c6e
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 21 16:07:32 2014 +0200
+
+    hej5
+
+commit 5275e1f599f6d0740c3d71b725b3bbd6eb897e85
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 21 16:07:02 2014 +0200
+
+    hej4
+
+commit 5ea33b5f8bf2477f176a7139ac240dd90ef1bd75
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 21 16:06:28 2014 +0200
+
+    hej3
+
+commit 17e6823c3791f48a828fc9a8d398095336768cca
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 21 16:06:11 2014 +0200
+
+    hej2
+
+commit ee7ad36b717f34274b5b788adf930f5832bc27d7
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 21 16:05:54 2014 +0200
+
+    hej
+
+commit 7cec0fc4a29ed50954e54823ead4a410aac4d009
+Author: okhalidan <khalidan@mac.com>
+Date:   Tue May 20 13:54:12 2014 +0200
+
+    hej morten
+
+commit d87ab37ae2fb16b610fbf3cb639d3764df03f941
+Author: okhalidan <khalidan@mac.com>
+Date:   Mon May 19 09:20:27 2014 +0200
+
+    hej morten
+
+commit 74f106b166f9c55adaafb173d2cfede2e3c979f7
+Author: okhalidan <khalidan@mac.com>
+Date:   Mon May 19 09:20:04 2014 +0200
+
+    hej morten
+
+commit 77cbce888eb34a17b136f9f9d6de99076d939fcf
+Author: okhalidan <khalidan@mac.com>
+Date:   Mon May 19 09:19:41 2014 +0200
+
+    hej morten
+
+commit be375c414d04677f470e605f0d89abb1d1169696
+Author: okhalidan <khalidan@mac.com>
+Date:   Mon May 19 09:19:22 2014 +0200
+
+    hej morten
+
+commit 9868bc02c6a292eb301c5eb1f174bbb5ce10af72
+Author: okhalidan <khalidan@mac.com>
+Date:   Mon May 19 09:18:56 2014 +0200
+
+    hej morten
+
+commit ccc9678f0c9bcf6e552281eb5ca20a4d44ba28bd
+Author: okhalidan <khalidan@mac.com>
+Date:   Mon May 19 09:18:03 2014 +0200
+
+    hej morten
+
+commit ab8a8672186f3ce214e318fd1c1d8563cf1a4723
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sun May 18 22:34:45 2014 +0200
+
+    Update README.md
+
+commit 1e4789144f59b180643fb4934e091a447ed1512b
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sun May 18 22:34:31 2014 +0200
+
+    Update README.md
+
+commit 00c7703971aa3ce3b6b2c4037e456daf8208dfc3
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sun May 18 22:32:48 2014 +0200
+
+    Update andenrapport.tex
+
+commit 01d04d3d31c215e17b0c216fbca13a2fc8541cd7
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sun May 18 22:32:29 2014 +0200
+
+    Update andenrapport.tex
+
+commit 7b00cda0810b4ac9fa97113b8edc3e976e4de6a2
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 15:32:54 2014 +0200
+
+    hej
+
+commit 6d651c8a6f320b7126e5e6f3ca3843aeeae493d5
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 15:30:42 2014 +0200
+
+    Omar redigering
+
+commit f4220417267bfba80297ded4c8a1116fb8bdee0e
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 15:24:13 2014 +0200
+
+    Omar Redigering
+
+commit 9a5f4ce370aa5c1ba0f07c15db6dc947c9a3d19e
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 15:21:12 2014 +0200
+
+    Omar Redigering
+
+commit d6115f2e83301d1baa851f102c755d01748d6a40
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 15:19:21 2014 +0200
+
+    Omar redigering
+
+commit 0a67f94aea03b3a6870bdf01505b737e38a75e0d
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 15:17:42 2014 +0200
+
+    Omar redigering
+
+commit 0fde5007086efb818edd8694135867d19b41f06c
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 15:07:27 2014 +0200
+
+    Omar redigering
+
+commit ab5d2c7027dd06f80d0fd3cbae71a61b84d2e159
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 09:51:14 2014 +0200
+
+    hej
+
+commit c2a340223c51edd0413018fa64db0da31273b33e
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 09:48:17 2014 +0200
+
+    hejmeddig
+
+commit 449194f3b77521b813dc8f336d7f24b2839a2c81
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 09:40:44 2014 +0200
+
+    hej dalal
+
+commit 87f9aff90c436cef8ddffd0572c0a146534ad146
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 09:14:22 2014 +0200
+
+    hej morten
+
+commit 7dbb939519165696a448554516442196e8fce778
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 08:58:29 2014 +0200
+
+    hej
+
+commit 3a7e9c2d12034f026630573ef8896b162830fab6
+Merge: 8b37e11 84f5d83
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 08:51:46 2014 +0200
+
+    Merge branch 'master' of github.com:mhtn/tolkeservice
+
+commit 8b37e11cbca4b162f45c62d2c98bcea0b700419b
+Author: okhalidan <khalidan@mac.com>
+Date:   Thu May 15 08:51:29 2014 +0200
+
+    hej med dig
+
+commit 84f5d836e448d8846f4530a5de66c1687257e155
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Wed May 14 22:59:09 2014 +0200
+
+    commit
+
+commit 9a39166a5c0a9ac94efae2e141bc6eb87076b884
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Wed May 14 21:10:30 2014 +0200
+
+    commit
+
+commit feb32b52a92e6d72959aee72777c10baaf3a6a38
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 14 14:14:20 2014 +0200
+
+    hej morten
+
+commit 5ba0cfc2310bac316a4e38cca1a27dbf0777e1ed
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Wed May 14 14:08:30 2014 +0200
+
+    commit
+
+commit f43793a45e2ddee9a767321e4b91a4c8c51efa1c
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 14 12:32:47 2014 +0200
+
+    hej morten - dette er bare en test -m
+
+commit 4b0bcb809acde7f2c0ec36f983ebffaea4db1de3
+Author: okhalidan <khalidan@mac.com>
+Date:   Wed May 14 10:16:51 2014 +0200
+
+    Update tests.py
+    
+    omar test1
+
+commit 5beeaaed5755a82135e1c75f7f0ac39eca925e23
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Wed May 14 00:47:48 2014 +0200
+
+    Update andenrapport.tex
+
+commit d5ad5061c5dbcedde0219d6acb10ec877214e528
+Merge: 80fac68 1492984
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Wed May 14 00:45:30 2014 +0200
+
+    Merge branch 'master' of github.com:mhtn/tolkeservice
+
+commit 80fac683de92d7f8f8e0a0d3c2bf561ee5f4f3df
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Wed May 14 00:45:12 2014 +0200
+
+    commit
+
+commit 149298416f0219536f3a646c8b1a70e65ab64215
+Author: okhalidan <khalidan@mac.com>
+Date:   Tue May 13 14:16:12 2014 +0200
+
+    Update andenrapport.tex
+
+commit 90c005eb8955a9f3e919640b29ddb88d6029bbbf
+Author: okhalidan <khalidan@mac.com>
+Date:   Tue May 13 13:12:07 2014 +0200
+
+    Update andenrapport.tex
+
+commit bf65fcfbb60064731fec1a4b2f7d83bb3027f048
+Author: okhalidan <khalidan@mac.com>
+Date:   Tue May 13 13:11:48 2014 +0200
+
+    Update andenrapport.tex
+
+commit 4e4f9d128035c7a50f0b74d34130f07a66775198
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sun May 11 21:20:22 2014 +0200
+
+    Update andenrapport.tex
+
+commit 3296da5b7f2ce57c4df3f72c4833fe65223ee564
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sun May 11 21:20:05 2014 +0200
+
+    Update andenrapport.tex
+
+commit 46c13583514134a7cd1b219a0c2a212ea016d107
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sun May 11 21:19:05 2014 +0200
+
+    Update andenrapport.tex
+
+commit a2c933c6656a27e88b4a5c6dd53b965df5e542b5
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sun May 11 21:18:44 2014 +0200
+
+    Update andenrapport.tex
+
+commit 4bf17fbae5b2ed475630de40779612beb655d496
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Sun May 11 21:17:57 2014 +0200
+
+    commit
+
+commit cc931efb469780f5b637ff07ebeca835b578d388
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sat May 10 22:35:02 2014 +0200
+
+    Update andenrapport.tex
+
+commit ddfb72b523101ef1f10d2aa7f0394ecbe42eb678
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sat May 10 22:34:32 2014 +0200
+
+    Update andenrapport.tex
+
+commit a264f1c4418a17f57b54e2867b470e8cb610612b
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sat May 10 22:32:43 2014 +0200
+
+    Update andenrapport.tex
+
+commit f52c5c441d8d584756069c81d52d9f309cc38eeb
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sat May 10 22:31:01 2014 +0200
+
+    Update andenrapport.tex
+
+commit 8f0e79198e525a12a1d4a6b4c44f605e5b7cc531
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Sat May 10 22:30:05 2014 +0200
+
+    Update base2.html
+
+commit 0a66940249f366499e543259f136ea564648e41a
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Sat May 10 22:14:49 2014 +0200
+
+    commit
+
+commit 886db9ef288a3d1e29236e7fde14e8e4364bf13e
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Fri May 9 12:31:49 2014 +0200
+
+    django-kode
+
+commit cbadc056147c1fcbff4cb09e2aae0fb492c04092
+Merge: da44388 533739c
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Thu Apr 24 01:58:32 2014 +0200
+
+    Merge branch 'master' of github.com:mhtn/tolkeservice
+    
+    Conflicts:
+    	andenrapport.aux
+    	andenrapport.log
+    	andenrapport.toc
+
+commit da4438868291b77b11dc6ac7845db93ce550d7f8
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Thu Apr 24 01:54:36 2014 +0200
+
+    anden rapport
+
+commit 533739c32c0689495c8b8359b1f8d8c02a8032ab
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Mon Apr 21 23:56:19 2014 +0200
+
+    Delete andenrapport.log
+
+commit 72ac72c54c56b7ca91225b06a0b9c57779929bb2
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Mon Apr 21 23:56:01 2014 +0200
+
+    Delete andenrapport.toc
+
+commit 21eb8f9154fb5b12ad09ee3839beb63d72ea5396
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Mon Apr 21 23:55:51 2014 +0200
+
+    Delete andenrapport.aux
+
+commit 2b0acff80dbc7cc51493ca13532fd4d8bfb0362c
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Mon Apr 21 23:54:13 2014 +0200
+
+    anden rapport
+
+commit c7864f490e0986d67247cea2848a0e19b2bf7b3f
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Sat Apr 19 03:33:46 2014 +0200
+
+    anden rapport
+
+commit e35594a89cc68cf5d91f0153f88ba431ec7da4f0
+Author: morten trolle <morten.trolle@gmail.com>
+Date:   Wed Apr 16 02:12:40 2014 +0200
+
+    initial commit
+
+commit b87f59d9036d9591c3f39fc91699650f3001e55c
+Author: mhtn <morten.trolle@gmail.com>
+Date:   Mon Apr 14 04:22:03 2014 -0700
+
+    Initial commit
