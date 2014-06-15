@@ -1,7 +1,4 @@
 # Django settings for tolk project.
-# Made by Trolle & Khalle
-#
-# ...
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -39,6 +36,7 @@ TIME_ZONE = 'Europe/Copenhagen'
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
+
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -161,3 +159,10 @@ LOGGING = {
         },
     }
 }
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'morten.trolle@gmail.com'
+EMAIL_HOST_PASSWORD = 'hundredeogfyrre'
+EMAIL_PORT = 587

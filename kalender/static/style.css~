@@ -6,15 +6,15 @@ div.container{
 }
 
 div.pm{
-	float:left;
+float:left;
 }
 
 div.nm{
-	float:right;
+float:right;
 }
 
 div.dt{
-	display:inline-block;
+display:inline-block;
 }
 
 

@@ -30,7 +30,7 @@
 	<tr><td>Password:</td><td> <input type="password" name="password" value="" id="password"></td></tr>
 </table>
 	<input type="submit" value="login" />
-	<input type="hidden" name="next" value="/tolk/kalender/{{ month }}/{{ year }}" />
+	<input type="hidden" name="next" value="/tolk/kalender/" />
 </form>
 </br>
 </br>

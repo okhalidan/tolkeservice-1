@@ -14,9 +14,12 @@
 {% endblock %}
 
 {% block content %}
-
-<h2>{{ month }} {{ year }}</h2>
-
+<div class="container">{% if prev_month != -1 %}
+	<div class="pm"><a href="/tolk/kalender/{{ prev_month }}/{{ prev_year }}/" class="prevMonth"> <<<  </a></div>{% endif %}
+<div class="dt">
+	<h2 class="dateHeader" align="center">{{ month_name }} {{ year }}</h2></div>
+<div class="nm"> <a href="/tolk/kalender/{{ next_month }}/{{ next_year }}/" class="nextMonth">>>></a></div>
+</div>
 <div class="cal">
 	<table class="calender">
 		<thead class="days"><tr>
@@ -34,7 +37,7 @@
 			<tr>
 				{% for day in week %}
 				{% if day != 0 %}
-				<td {% if day != 0 %} onMouseOver="this.bgColor='#eeeeee';" onMouseOut="this.bgColor='white';" {% endif %} ><a href="dag/{{ year }}/{{ month }}/{{ day }}"> {{ day }} </td></a>
+				<td {% if day != 0 %} onMouseOver="this.bgColor='#eeeeee';" onMouseOut="this.bgColor='white';" {% endif %} ><a href="/tolk/kalender/dag/{{ year }}/{{ month_name }}/{{ day }}/"> {{ day }} </td></a>
 				{% else %}
 				<td> </td>
 				{% endif %}

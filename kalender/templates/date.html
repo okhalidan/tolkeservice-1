@@ -8,45 +8,49 @@
 {% block title %}Dato{% endblock %}
 
 {% block content %}
-{{ h  }}
-{{ appLst  }}
-
-<h3 align="center">{{ day }} {{ month }} {{ year }}</h3>
-<table><tr> <!-- <td>
-	<form action="" method="POST">{% csrf_token %}
-	{% for clock in clock_lst %}
+<div class="dateheader">
+	<div class="month">
+		<a href="/tolk/kalender/{{ monthnr }}/{{ year }}/">Kalender</a></div>
+	<div class="dmy">
+		<h3 align="center">{{ day }} {{ month }} {{ year }}</h3></div>
+	<div class="logout">
+		<a href="/tolk/logout/">Log ud</a></div>
+</div>
+<table><tr><td>{% for app in md %}  
 	<table class="appointment">
-		<tr><td class="td_clock"><h4>{{ clock }}</h4></td>
-		    <td><input class="day" type="text" name="appointment" value="" id="app" size="50" /></td></tr>
-	{% endfor %}
+		<tr><form action="" method="POST">{% csrf_token %}   
+		<td><input type="text" value="{{ app.clock }}" size="1" readonly></td>
+		<td><input type="text" size="8" value="{% if app.place != Optaget %}{{ app.place }}{% else %}Optaget{% endif %}" readonly>
+	       	{% if app.name|lower == user|lower %} <td><input type="submit" value="Slet aftale"></td> {% endif %}  
+		<td><input type="hidden" name="pk" value="{{ app.pk }}"> </td>
+		</form></tr>
 	</table>
-	</form>  -->
-	{% for app in appLst %}
-	<td>{{ app }}</td>
 	{% endfor %}
-
-
-	<td class="app_table">
+</td><td class="app_table">{% if form.errors %} <p style="color: red;">Ret venligst fejlene.</p>{% endif %}
 	<form enctype="multipart/form-data" action="" method="POST">{% csrf_token %}
 	<table class="app_data">
-		<tr><td>Dato:</td><td><input type="text" name="date" value="{{ year  }} 04 07"</td></tr>
-		<tr><td>Start:</td><td>{{ form.start }}</td></tr>
-		<tr><td>Slut:</td><td>{{ form.end }}</td></tr>
-		<tr><td>Navn:</td><td>{{ form.name }}</td></tr>
-		<tr><td>Sted:</td><td colspan="3">{{ form.place }}</td></tr>
-		<tr><td>Adresse:</td><td colspan="3">{{ form.adress }} </td></tr>
-		<tr><td>Bygning:</td><td>{{ form.building }}</td></tr>
-		<tr><td>Etage:</td><td>{{ form.floor }}</td></tr>
-		<tr><td>Postnr.:</td><td>{{ form.zipcode }}</td></tr>
-		<tr><td>By:</td><td>{{ form.city }}</td></tr> 
-		<tr><td>Tlf.:</td><td>{{ form.telephone  }}</td></tr>
-		<tr><td>Email:</td><td colspan="4">{{ form.email }}</td></tr>
-		<tr><td>Andet:</td><td colspan="4">{{ form.message }}</td></tr>
-		<tr><td>Vedhæft:</td><td colspan="3">{{ form.attach }}</td></tr>
+		<tr>{{ form.date.errors }}<td>Dato:</td><td><input type="text" name="date" size="4" value="{{ year }}-{{ monthnr }}-{{ day }}">
+			</td></tr>
+		<tr>{{ form.start.errors }}<td>Start:</td><td>{{ form.start }}</td></tr>
+		<tr>{{ form.end.errors }}<td>Slut:</td><td>{{ form.end }}</td></tr>
+		<tr>{{ form.name.errors }}<td>Navn:</td><td>{{ form.name }}</td></tr>
+		<tr>{{ form.place.errors }}<td>Sted:</td><td colspan="3">{{ form.place }}</td></tr>
+		<tr>{{ form.adress.errors }}<td>Adresse:</td><td colspan="3">{{ form.adress }} </td></tr>
+		<tr>{{ form.building.errors }}<td>Bygning:</td><td>{{ form.building }}</td></tr>
+		<tr>{{ form.floor.errors }}<td>Etage:</td><td>{{ form.floor }}</td></tr>
+		<tr>{{ form.zipcode.errors }}<td>Postnr.:</td><td>{{ form.zipcode }}</td></tr>
+		<tr>{{ form.city.errors }}<td>By:</td><td>{{ form.city }}</td></tr> 
+		<tr>{{ form.telephone.errors }}<td>Tlf.:</td><td>{{ form.telephone  }}</td></tr>
+		<tr>{{ form.email.errors }}<td>Email:</td><td colspan="4">{{ form.email }}</td></tr>
+		<tr>{{ form.message.errors }}<td>Andet:</td><td colspan="4">{{ form.message }}</td></tr>
+		<tr>{{ form.attach.errors }}<td>Vedhæft:</td><td colspan="3">{{ form.attach }}</td></tr>
 		<tr><td></td><td><input type="submit" value="Send"></td></tr>
+		<tr><td>
 	</table>
 	</form>
 
 </td></tr></table>
 
 {% endblock %}
+
+
